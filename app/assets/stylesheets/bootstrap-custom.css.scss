@@ -1,0 +1,29 @@
+$gray-light: #bbb;
+$brand-primary: #ff8700;;
+
+
+$navbar-default-color:             $gray-light;
+$navbar-default-bg:                $brand-primary;
+$navbar-default-border:            darken($navbar-default-bg, 6.5%);
+
+// Navbar links
+$navbar-default-link-color:                #fff;
+$navbar-default-link-hover-color:          #fff;
+$navbar-default-link-hover-bg:             lighten($navbar-default-bg, 10%);
+$navbar-default-link-active-color:         #fff;
+$navbar-default-link-active-bg:            $navbar-default-link-hover-bg;
+$navbar-default-link-disabled-color:       #ccc;
+$navbar-default-link-disabled-bg:          transparent;
+
+// Navbar brand label
+$navbar-default-brand-color:               $navbar-default-link-color;
+$navbar-default-brand-hover-color:         $navbar-default-brand-color;
+$navbar-default-brand-hover-bg:            none;
+
+// Navbar toggle
+$navbar-default-toggle-hover-bg:           $navbar-default-link-hover-bg;
+$navbar-default-toggle-icon-bar-bg:        #fff;
+$navbar-default-toggle-border-color:       $navbar-default-link-hover-bg;
+
+
+@import "bootstrap";

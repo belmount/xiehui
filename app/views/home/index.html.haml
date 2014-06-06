@@ -1,0 +1,24 @@
+.container.well
+  %header.navbar.navbar-top.navbar-default
+    .container-fluid
+      .navbar-header
+        %button.navbar-toggle{type:"button", "data-toggle"=> "collapse","data-target"=>"#nb"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a{href: root_path} 
+          -#=image_tag 'logo.gif'
+      #nb.navbar-collapse.collapse.navbar-right
+        %ul.nav.navbar-nav.center-block
+          %li
+            %a{href: '#'} 会员
+          %li
+            %a 培训
+          %li
+            %a 关于
+  %section.row
+    %h1.text-center
+      Bla Bla
+    %p
+      %a.btn.btn-default.btn-lg 成为会员
