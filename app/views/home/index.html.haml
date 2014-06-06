@@ -1,24 +1,56 @@
-.container.well
-  %header.navbar.navbar-top.navbar-default
-    .container-fluid
-      .navbar-header
-        %button.navbar-toggle{type:"button", "data-toggle"=> "collapse","data-target"=>"#nb"}
-          %span.sr-only Toggle navigation
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
-        %a{href: root_path} 
-          -#=image_tag 'logo.gif'
-      #nb.navbar-collapse.collapse.navbar-right
-        %ul.nav.navbar-nav.center-block
-          %li
-            %a{href: '#'} 会员
-          %li
-            %a 培训
-          %li
-            %a 关于
+%header
+  .navbar.navbar-top.navbar-inverse
+    .navbar-header
+      %a.navbar-brand{href: root_path}
+        =image_tag 'logo.png'
+
+      %button.navbar-toggle{type:"button", "data-toggle"=> "collapse","data-target"=>"#nb"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{href: root_path} #武汉市房地产中介协会 
+    #nb.navbar-collapse.collapse
+
+      %ul.nav.navbar-nav
+        %li
+          %a{href: '#'} 会员
+        %li
+          %a 培训
+        %li
+          %a 关于
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          =link_to '登陆', '#'
+.wrapper1
   %section.row
-    %h1.text-center
-      Bla Bla
-    %p
-      %a.btn.btn-default.btn-lg 成为会员
+    .col-sm-10.col-sm-offset-1
+      %h1.text-center.text-success
+        Join Us Now
+      .row
+        .col-sm-4
+          =image_tag 'fist.png'
+        .col-sm-8
+          %h3.text-center.text-muted
+            为房地产市场繁荣稳定贡献力量
+          %p.text-center
+            =link_to "<span class='glyphicon glyphicon-registration-mark'></span>成为会员".html_safe, '#', {"class"=>'btn btn-danger btn-lg'}
+%section
+  .container
+    .row
+      .col-sm-6
+        %h3.text-danger 活动
+        .list-group
+          - 5.times do  
+            .list-group-item
+              %h5.list-group-item-heading text on the right
+              %p.list-group-item-text
+                come together
+              =link_to 'go', '#', {"class"  =>  "list-group-item-text"}
+              %p.list-group-item-text.text-right
+                ="at 2014-01-01"
+      .col-sm-6
+        %h3 通知
+        %hr
+%footer
+  
