@@ -6,4 +6,6 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 %body{"class"=> controller.controller_name}
+  = render "layouts/navbar"
   = yield
+  = render 'layouts/footer'

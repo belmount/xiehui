@@ -1,0 +1,24 @@
+%header
+  .navbar.navbar-fixed-top.navbar-inverse
+    .navbar-header
+      %a.navbar-brand{href: root_path}
+        =image_tag 'logo.png'
+
+      %button.navbar-toggle{type:"button", "data-toggle"=> "collapse","data-target"=>"#nb"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{href: root_path} #武汉市房地产中介协会 
+    #nb.navbar-collapse.collapse
+
+      %ul.nav.navbar-nav
+        %li
+          %a{href: '#'} 会员
+        %li
+          %a 培训
+        %li
+          =link_to '关于', about_path
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          =link_to '登陆', '#'
