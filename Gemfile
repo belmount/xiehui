@@ -29,7 +29,13 @@ gem 'bootstrap-sass', '~> 3.1.1'
 
 gem 'haml'
 
-gem "mercury-rails"
+gem 'ckeditor', :git => 'https://github.com/galetahub/ckeditor.git'
+gem 'paperclip'
+
+gem 'simple_form'
+gem 'cancan'
+gem 'devise'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

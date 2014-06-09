@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :pages
+
+  devise_for :users
+  mount Ckeditor::Engine => '/ckeditor'
   get 'home/index'
   get 'home/about', as: 'about'
 

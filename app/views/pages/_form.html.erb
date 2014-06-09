@@ -1,0 +1,21 @@
+<%= simple_form_for(@page) do |f| %>
+  <% if @page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
+
+      <ul>
+      <% @page.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :title, label: '标题' %>
+  <%= f.input :path, label: "Url:" %>
+  <%= f.input :content, as: :ckeditor, label: '内容', :input_html => { :ckeditor => { :height => 200 }} %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,12 +1,13 @@
-%footer.wrapper1
+%footer.footer
   .container
     %br
     .row
-      .col-sm-4.text-danger
+      .col-sm-4
         %p &copy;2014 武汉市房地产中介协会
         %p 技术支持：武汉速房科技有限公司
       .col-sm-8
         %p.pull-right
-          =link_to '关于', '#'
-          =link_to '新房网', '#'
-          =link_to '存量房交易平台', '#'
+          %ul.list-unstyled
+            %li=link_to '关于', '#'
+            %li=link_to '新房网', '#'
+            %li=link_to '存量房交易平台', '#'
