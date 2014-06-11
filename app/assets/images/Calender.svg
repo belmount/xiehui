@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="100%"
+   height="100%"
+   viewBox="0 0 331.21 356.58"
+   id="svg7180">
+  <defs
+     id="defs7182">
+    <filter
+       color-interpolation-filters="sRGB"
+       id="filter7094">
+      <feGaussianBlur
+         stdDeviation="11.369485"
+         id="feGaussianBlur7096" />
+    </filter>
+    <linearGradient
+       x1="-480"
+       y1="266.64999"
+       x2="-488.57001"
+       y2="863.78998"
+       id="linearGradient7052"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         id="stop7048"
+         style="stop-color:#9b9181;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop7050"
+         style="stop-color:#f5f5ed;stop-opacity:1"
+         offset="1" />
+    </linearGradient>
+  </defs>
+  <g
+     transform="matrix(0.50162,0,0,0.50162,419.279,-91.833)"
+     id="g7119">
+    <g
+       transform="translate(-500,-440)"
+       id="g7088"
+       style="fill:#4d4d4d;filter:url(#filter7094)">
+      <path
+         d="m -233.77,700.94 c -41.444,0 -74.812,33.368 -74.812,74.812 v 456.09 c 0,41.444 33.368,74.812 74.812,74.812 h 456.09 c 41.444,0 74.812,-33.368 74.812,-74.812 v -456.09 c 0,-41.444 -33.368,-74.812 -74.812,-74.812 h -21.688 v 74.688 c 0,13.133 -10.555,23.719 -23.688,23.719 h -28.188 c -13.133,0 -23.688,-10.586 -23.688,-23.719 V 700.94 h -93 v 74.688 c 0,13.133 -10.555,23.719 -23.688,23.719 h -28.187 c -13.133,0 -23.719,-10.586 -23.719,-23.719 V 700.94 h -92.969 v 74.688 c 0,13.133 -10.586,23.719 -23.719,23.719 h -28.156 c -13.133,0 -23.719,-10.586 -23.719,-23.719 V 700.94 h -21.688 z"
+         id="path7066" />
+      <rect
+         width="54.164001"
+         height="137.25999"
+         ry="16.987"
+         x="-202.86"
+         y="650.35999"
+         id="rect7068" />
+      <rect
+         width="54.164001"
+         height="137.25999"
+         ry="16.987"
+         x="-33.429001"
+         y="650.35999"
+         id="rect7070" />
+      <rect
+         width="54.164001"
+         height="137.25999"
+         ry="16.987"
+         x="138"
+         y="650.35999"
+         id="rect7072" />
+    </g>
+    <path
+       d="m -736.62,260.94 c -41.444,0 -74.812,33.368 -74.812,74.812 v 456.09 c 0,41.444 33.368,74.812 74.812,74.812 h 456.09 c 41.444,0 74.812,-33.368 74.812,-74.812 v -456.09 c 0,-41.444 -33.368,-74.812 -74.812,-74.812 h -21.688 v 74.688 c 0,13.133 -10.555,23.719 -23.688,23.719 h -28.188 c -13.133,0 -23.688,-10.586 -23.688,-23.719 V 260.94 h -93 v 74.688 c 0,13.133 -10.555,23.719 -23.688,23.719 h -28.188 c -13.133,0 -23.719,-10.586 -23.719,-23.719 V 260.94 h -92.969 v 74.688 c 0,13.133 -10.586,23.719 -23.719,23.719 h -28.156 c -13.133,0 -23.719,-10.586 -23.719,-23.719 V 260.94 h -21.688 z"
+       id="rect3780"
+       style="fill:url(#linearGradient7052);fill-opacity:1" />
+    <rect
+       width="54.164001"
+       height="137.25999"
+       ry="16.987"
+       x="-705.71002"
+       y="210.36"
+       id="rect3801"
+       style="fill:#333333" />
+    <rect
+       width="54.164001"
+       height="137.25999"
+       ry="16.987"
+       x="-536.28998"
+       y="210.36"
+       id="rect3803"
+       style="fill:#333333" />
+    <rect
+       width="54.164001"
+       height="137.25999"
+       ry="16.987"
+       x="-364.85999"
+       y="210.36"
+       id="rect3805"
+       style="fill:#333333" />
+  </g>
+  <metadata
+     id="metadata32">
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
+        <dc:publisher>
+          <cc:Agent
+             rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title></dc:title>
+        <dc:date>2012-01-14T11:11:17</dc:date>
+        <dc:description>Daily Calendar </dc:description>
+        <dc:source>http://openclipart.org/detail/167050/calendar--by-gsagri04</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>gsagri04</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>Calendar</rdf:li>
+            <rdf:li>Date</rdf:li>
+            <rdf:li>Table</rdf:li>
+            <rdf:li>clip art</rdf:li>
+            <rdf:li>clipart</rdf:li>
+            <rdf:li>month</rdf:li>
+            <rdf:li>png</rdf:li>
+            <rdf:li>svg</rdf:li>
+            <rdf:li>top</rdf:li>
+            <rdf:li>year</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

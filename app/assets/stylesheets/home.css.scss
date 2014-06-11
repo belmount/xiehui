@@ -4,6 +4,8 @@
 
 $navbar-default-bg: #ff8700;
 $footer-link-color: #AEA495;
+$footer-bg-color:  #554e44;
+$brand-primary: #ef4929;
 .home {
   .navbar{
     margin-bottom:0px;
@@ -13,6 +15,8 @@ $footer-link-color: #AEA495;
     }
     
   }
+
+  hr {border:1px solid #D8D2C8;}
   
   .wrapper1{
     background-color:  #ffffff;
@@ -20,11 +24,28 @@ $footer-link-color: #AEA495;
     background-image: url(bg2.svg);
     color: #fff;
   }
-  .footer {
-    background-color: #554e44;
-    color: #EDEBE4;
 
-    a{color: $footer-link-color}
-    a:hover{color: lighten($footer-link-color, 0.2)}
+  a:hover{ color: $brand-primary; background-color:transparent;text-decoration: none;}
+
+  .base-ul-links {
+    ul, a{color: $footer-link-color; 
+    text-decoration: none;}
+    a:hover{color: #fff;background-color: $footer-bg-color;}
+  }
+  .footer {
+    @extend .base-ul-links;
+    background-color: $footer-bg-color;
+    color: #EDEBE4;
+  }
+
+  .large-link{
+    @extend .base-ul-links;
+    a:hover{color:  $footer-bg-color;background-color:transparent;}
+    ul { font-size:16px;}
+    li {margin-bottom: 10px;}
+  }
+
+  .label-default {
+    background-color: lighten($footer-bg-color, 30%);
   }
 }

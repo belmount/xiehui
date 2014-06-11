@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="100%"
+   height="100%"
+   viewBox="0 0 135 170"
+   id="svg3188"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="newspaper_pictogram.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1680"
+     inkscape:window-height="987"
+     id="namedview6"
+     showgrid="false"
+     inkscape:zoom="1.3882353"
+     inkscape:cx="-52.436441"
+     inkscape:cy="85"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3188" />
+  <defs
+     id="defs9" />
+  <path
+     d="m 0,0 v 18.688 151.31 H 135 V 18.688 0 L 129.375,5 123.75,10 118.125,5 112.5,0 106.875,5 101.25,10 95.625,5 90,0 84.375,5 78.75,10 73.125,5 67.5,0 61.875,5 56.25,10 50.625,5 45,0 39.375,5 33.75,10 28.125,5 22.5,0 16.875,5 11.25,10 5.625,5 0,0 z m 17.5,24.812 h 100 v 15 h -100 v -15 z m 0,33.625 h 55 v 40 h -55 v -40 z m 67,0 h 33 v 5 h -33 v -5 z m 0,17.5 h 33 v 5 h -33 v -5 z m 0,17.5 h 33 v 5 h -33 v -5 z m -67,22.969 h 100 v 5 h -100 v -5 z m 0,15.906 h 100 v 5 h -100 v -5 z m 0,15.906 h 100 v 5 h -100 v -5 z"
+     id="rect6078-8"
+     style="fill:#aea495;fill-opacity:0.58373207" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
+        <dc:publisher>
+          <cc:Agent
+             rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title></dc:title>
+        <dc:date>2013-11-16T20:20:04</dc:date>
+        <dc:description />
+        <dc:source>http://openclipart.org/detail/188834/newspaper-pictogram-by-libberry-188834</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>libberry</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>newspaper</rdf:li>
+            <rdf:li>news</rdf:li>
+            <rdf:li>library</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

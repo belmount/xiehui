@@ -1,60 +1,85 @@
-.wrapper1
-  %section.row
-    .col-sm-10.col-sm-offset-1
-      .row
-        .col-sm-3
-          =image_tag 'fist.png', {height: 120, width: 120}
-        .col-sm-9
-          %h1.text-center.text-success
-            Join Us Now
-          %h3.text-center.text-muted
-            为房地产市场繁荣稳定贡献力量
-          %p.text-center
-            =link_to "<span class='glyphicon glyphicon-registration-mark'></span>成为会员".html_safe, '#', {"class"=>'btn btn-danger btn-lg'}
 %section
   .container
     .row
+      .col-sm-8
+        %h3 
+          新闻&通告
+        .row
+          .col-sm-4
+            =image_tag 'newspaper_pictogram.svg', {height: 200, width:200}
+          .col-sm-8.large-link
+            %ul.list-unstyled
+              -for i in 1..7 do
+                %li
+                  %span.label.label-default=DateTime.current.change(day: -i).to_s(:zh)
+                  =link_to '中介信用档案 & 服务评价', '#'
+              %li
+                %a.pull-left{href: root_path}
+                  %span.text-primary.glyphicon.glyphicon-circle-arrow-right
+               
+      .col-sm-4.large-link
+        %h3 
+          =image_tag 'shopping_cart.svg', {heigt: 40, width: 40}
+          消费者
+        %ul.list-unstyled
+          %li=link_to "中介信用档案 & 服务评价", '#'
+          %li=link_to "购房交易知识", '#'
+          %li=link_to "存量房网签【自行交易预签约】", '#'
+          %li=link_to "曝光台", '#'
+          %li
+            %a.pull-left{href: root_path}
+              %span.text-primary.glyphicon.glyphicon-circle-arrow-right
+        
+
+%section
+  .container
+    .row.large-link
       .col-sm-4
-        %h3.text-danger 活动
-        .list-group
-          - 7.times do  
-            .list-group-item
-              %h5.list-group-item-heading text on the right
-              %p.list-group-item-text
-                come together
-              =link_to 'go', '#', {"class"  =>  "list-group-item-text"}
-              %p.list-group-item-text.text-right
-                ="at 2014-01-01"
+        %hr
+        .row
+          .col-xs-8
+            %h3 
+              %span.glyphicon.glyphicon-registration-mark
+              会员
+              %a.pull-left{href: root_path}
+                %span.text-primary.glyphicon.glyphicon-circle-arrow-right
+        %ul.list-unstyled
+          %li= link_to "会员权益", '#'
+          %li= link_to "法律咨询", '#'
+          %li= link_to "市场研究", '#'
+          %li= link_to "同行互助", '#'
+
       .col-sm-4
-        %h3 通知
+        %hr
+        .row
+          .col-xs-8
+            %h3 
+              %span.glyphicon.glyphicon-link
+              中介
+              %a.pull-right{href: root_path}
+                %span.text-primary.glyphicon.glyphicon-circle-arrow-right
+        %ul.list-unstyled
+          %li= link_to '存量房网签系统', '#'
+          %li= link_to '房屋租赁备案系统', '#'
+          %li= link_to '中介服务预受理系统', '#'
+          %li= link_to '资格证培训', '#'
+          %li= link_to '继续教育培训', '#'
+    
+      .col-sm-4
+        %hr
+        .row
+          .col-xs-8
+           
+       
+%section
+  .container
+    %h3 赞助商
+    %hr
+    - 2.times do 
+      .row
+        %br
         -3.times do
-          .panel.panel-default
-            .panel-heading &nbsp;
-            .panel-body
-              .media
-                %a.pull-left
-                  =image_tag "fist.png", {:class => "media-object", height: 64, width: 64}
-                .media-body
-                  %h4.media-heading 道可道也
-                  %p
-                    道可道，非常道；名可名，非常名。无，名天地之始；有，名万物之母。故常无，欲以观其妙；常有，欲以观其徼。此两者同出而异名，同谓之玄，玄之又玄，众妙之门。
-      .col-sm-4
-        %h3 文件
-        .list-group
-          -7.times do 
-            .list-group-item
-              %h5.list-group-item-heading text on the right
-              %p.list-group-item-text
-                come together
-              =link_to 'go', '#', {"class"  =>  "list-group-item-text"}
-              %p.list-group-item-text.text-right
-                ="at 2014-01-01"
-%section.container
-  %hr
-  .row
-    -3.times do 
-      .col-xs-4.panel.text-danger
-        %h1.text-center
-          %span.glyphicon.glyphicon-floppy-open
-        .caption.text-center
-          %h3 存量房备案网上签约系统
+          .col-sm-4 
+            =holder_tag '300x100', 'brand-logo', 'lava'
+      
+    %br

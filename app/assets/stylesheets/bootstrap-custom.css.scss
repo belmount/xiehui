@@ -24,7 +24,7 @@ $navbar-default-brand-hover-bg:            $navbar-default-bg;
 
 // Navbar toggle
 $navbar-default-toggle-hover-bg:           $navbar-default-link-hover-bg;
-$navbar-default-toggle-icon-bar-bg:        #fff;
+$navbar-default-toggle-icon-bar-bg:        $brand-primary;
 $navbar-default-toggle-border-color:       $navbar-default-link-hover-bg;
 
 //== Typography
@@ -39,6 +39,17 @@ $font-size-h4:            ceil(($font-size-base * 1.25)); // ~18px
 $font-size-h5:            $font-size-base;
 $font-size-h6:            ceil(($font-size-base * 0.85)); // ~12px
 
-body { padding-top: 50px; }
 
+$font-family-sans-serif:  Tahoma, Helvetica, Arial, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", sans-serif;
+$font-family-serif:       Georgia, "Times New Roman", "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑", serif;
+
+body { padding-top: 50px;}
+$list-group-bg:        $body-bg;
+$list-group-border:  $list-group-bg;
+
+.text-primary {
+  color: $brand-primary;
+}
+
+.main {min-height:600px;}
 @import "bootstrap";
