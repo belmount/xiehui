@@ -2,73 +2,87 @@
   .container
     .row
       .col-sm-8
-        %h3 
-          新闻&通告
-        .row
-          .col-sm-4
-            =image_tag 'newspaper_pictogram.svg', {height: 200, width:200}
-          .col-sm-8.large-link
-            %ul.list-unstyled
-              -for i in 1..7 do
+        .col-xs-11.border-default
+          %h3 
+            新闻
+            %span.text-primary &
+            通告
+          .row
+            .col-sm-4
+              =image_tag 'newspaper_pictogram.svg', {height: 200, width:200}
+            .col-sm-8.large-link
+              %ul.list-unstyled
+                -for i in 1..7 do
+                  %li
+                    %span.label.label-default=DateTime.current.change(day: -i).to_s(:zh)
+                    =link_to '中介信用档案 & 服务评价', '#'
                 %li
-                  %span.label.label-default=DateTime.current.change(day: -i).to_s(:zh)
-                  =link_to '中介信用档案 & 服务评价', '#'
-              %li
-                %a.pull-left{href: root_path}
-                  %span.text-primary.glyphicon.glyphicon-circle-arrow-right
+                  %a.pull-left{href: root_path}
+                    %span.text-primary.glyphicon.glyphicon-circle-arrow-right
                
       .col-sm-4.large-link
-        %h3 
-          =image_tag 'shopping_cart.svg', {heigt: 40, width: 40}
-          消费者
-        %ul.list-unstyled
-          %li=link_to "中介信用档案 & 服务评价", '#'
-          %li=link_to "购房交易知识", '#'
-          %li=link_to "存量房网签【自行交易预签约】", '#'
-          %li=link_to "曝光台", '#'
-          %li
-            %a.pull-left{href: root_path}
-              %span.text-primary.glyphicon.glyphicon-circle-arrow-right
+        .col-xs-10.border-default
+          %h3 
+            =image_tag 'shopping_cart.svg', {heigt: 40, width: 40}
+            消费者
+          %ul.list-unstyled
+            %li=link_to "中介信用档案 & 服务评价", '#'
+            %li=link_to "购房交易知识", '#'
+            %li=link_to "存量房网签【自行交易预签约】", '#'
+            %li=link_to "曝光台", '#'
+            %li
+              %a.pull-left{href: root_path}
+                %span.text-primary.glyphicon.glyphicon-circle-arrow-right
         
 
 %section
   .container
-    .row.large-link
+    .row
       .col-sm-4
-        %hr
+        .col-xs-10.border-default
+          =image_tag 'worldwide_community.svg', {height: 100, width: 200}
+      .col-sm-4
+        .col-xs-10.border-default
+          =image_tag 'wheel.svg',  {height: 100, width: 200}
+      .col-sm-4
+        .col-xs-10.border-default
+          =image_tag 'zebra-heart-plain.svg',  {height: 100, width: 200}
+    .row.large-link
+      .col-sm-8
         .row
-          .col-xs-8
-            %h3 
-              %span.glyphicon.glyphicon-registration-mark
-              会员
-              %a.pull-left{href: root_path}
-                %span.text-primary.glyphicon.glyphicon-circle-arrow-right
-        %ul.list-unstyled
-          %li= link_to "会员权益", '#'
-          %li= link_to "法律咨询", '#'
-          %li= link_to "市场研究", '#'
-          %li= link_to "同行互助", '#'
+          .col-xs-6
+            %h3 会员
+            %ul.list-unstyled
+              %li= link_to "会员权益", '#'
+              %li= link_to "法律咨询", '#'
+              %li= link_to "市场研究", '#'
+              %li= link_to "同行互助", '#'
+            %a.pull-left{href: root_path}
+              %span.text-primary.glyphicon.glyphicon-circle-arrow-right
+          .col-xs-6
+            %h3.text-primary 副会长单位
+            .row
+              -3.times do
+                .col-xs-4
+                  %ul.list-unstyled
+                    - 5.times do
+                      %li=link_to '百居易', '#'
 
       .col-sm-4
-        %hr
         .row
           .col-xs-8
             %h3 
-              %span.glyphicon.glyphicon-link
-              中介
-              %a.pull-right{href: root_path}
-                %span.text-primary.glyphicon.glyphicon-circle-arrow-right
+              经纪机构
+              
         %ul.list-unstyled
           %li= link_to '存量房网签系统', '#'
           %li= link_to '房屋租赁备案系统', '#'
           %li= link_to '中介服务预受理系统', '#'
           %li= link_to '资格证培训', '#'
           %li= link_to '继续教育培训', '#'
-    
-      .col-sm-4
-        %hr
-        .row
-          .col-xs-8
+        %a.pull-left{href: root_path}
+          %span.text-primary.glyphicon.glyphicon-circle-arrow-right
+
            
        
 %section

@@ -25,6 +25,18 @@ $brand-primary: #ef4929;
     color: #fff;
   }
 
+  .community-bg {
+    background-image: url('worldwide_community.svg');
+    background-size: 100px 200px;
+    background-repeat: no-repeat;
+    background-position:150px 50px;
+  }
+  .border-default {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d8d2c8;
+  }
+
   a:hover{ color: $brand-primary; background-color:transparent;text-decoration: none;}
 
   .base-ul-links {
