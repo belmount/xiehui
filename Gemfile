@@ -29,6 +29,8 @@ gem 'bootstrap-sass', '~> 3.1.1'
 
 gem 'haml'
 
+gem "non-stupid-digest-assets"
+
 gem 'ckeditor', :git => 'https://github.com/galetahub/ckeditor.git'
 gem 'paperclip'
 

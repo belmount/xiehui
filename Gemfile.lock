@@ -82,6 +82,7 @@ GEM
     mime-types (1.25.1)
     minitest (5.3.4)
     multi_json (1.10.1)
+    non-stupid-digest-assets (1.0.4)
     orm_adapter (0.5.0)
     paperclip (4.1.1)
       activemodel (>= 3.0.0)
@@ -171,6 +172,7 @@ DEPENDENCIES
   holder_rails
   jbuilder (~> 2.0)
   jquery-rails
+  non-stupid-digest-assets
   paperclip
   rails (= 4.1.1)
   sass-rails (~> 4.0.3)
