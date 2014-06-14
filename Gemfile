@@ -51,4 +51,5 @@ gem 'holder_rails'
 # gem 'debugger', group: [:development, :test]
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'therubyracer', platform: :ruby
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
