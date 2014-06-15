@@ -1,24 +1,10 @@
 %section
   .container
     .row
-      .col-sm-8
-        .col-xs-11.border-default
-          %h3 
-            新闻
-            %span.text-primary &
-            通告
-          .row
-            .col-sm-4
-              =image_tag 'newspaper_pictogram.svg', {height: 200, width:200}
-            .col-sm-8.large-link
-              %ul.list-unstyled
-                -for i in 1..7 do
-                  %li
-                    %span.label.label-default=DateTime.current.change(day: -i).to_s(:zh)
-                    =link_to '中介信用档案 & 服务评价', '#'
-                %li
-                  %a.pull-left{href: root_path}
-                    %span.text-primary.glyphicon.glyphicon-circle-arrow-right
+      .col-sm-8 
+        -# news
+        =render 'news' 
+        
                
       .col-sm-4.large-link
         .col-xs-10.border-default

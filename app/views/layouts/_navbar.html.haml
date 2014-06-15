@@ -15,7 +15,7 @@
       #nb.navbar-collapse.collapse
 
         %ul.nav.navbar-nav
-          - menu = {新闻: '#','会员'=> '#',  培训: '#', 关于: about_path }
+          - menu = {新闻: '#','会员'=> '#',  培训: '#',政策法规: '#', 办事指南: '#', 关于: about_path }
           - menu.each do |k, v|
             %li= link_to k, v
         %ul.nav.navbar-nav.navbar-right
