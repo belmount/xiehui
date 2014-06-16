@@ -11,7 +11,6 @@ module Zjxh
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     config.assets.precompile += %w( ckeditor/filebrowser/javascripts/*.js )
     config.assets.precompile += %w( ckeditor/filebrowser/stylesheets/*.css )
-    config.assets.precompile += %w( ckeditor/*.md ckeditor/plugins/a11yhelp/dialogs/lang/_translationstatus.txt )
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -22,6 +21,6 @@ module Zjxh
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.i18n.default_locale = 'zh-CN'
   end
 end

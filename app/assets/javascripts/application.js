@@ -16,4 +16,6 @@
 //= require bootstrap
 //= require ckeditor/init
 //= require holder
+//= require bootstrap-datepicker/core
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.js
 //= require_tree .

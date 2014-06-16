@@ -1,29 +1,27 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
+<ol class="breadcrumb">
+  <li><%=link_to '新闻', news_index_path %></li>
+  <li class="active"><%= @news.title %></li>
+</ol>
+<h1>
   <%= @news.title %>
-</p>
+</h1>
+<hr/>
+<h4>
+  <span class='label label-info'>
+      <%= @news.happend_at %>
+  </span>
+  <span class='label label-default pull-right'>
+      <%= news_type_text @news.ntype %> 
+  </span>
+</h4>
+<hr/>
 
-<p>
-  <strong>Content:</strong>
-  <%= @news.content %>
-</p>
+<div>
+  <%= @news.content.html_safe %>
+</div>
 
-<p>
-  <strong>Type:</strong>
-  <%= @news.type %>
-</p>
 
-<p>
-  <strong>Happend at:</strong>
-  <%= @news.happend_at %>
-</p>
 
-<p>
-  <strong>First img url:</strong>
-  <%= @news.first_img_url %>
-</p>
-
-<%= link_to 'Edit', edit_news_path(@news) %> |
-<%= link_to 'Back', news_index_path %>
+<%= link_to '编辑', edit_news_path(@news) %> |
+<%= link_to '返回列表', news_index_path %>

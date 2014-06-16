@@ -10,15 +10,5 @@
   %section
     .alert-info= notice
     .alert-warning= alert
-  .main
-    .container
-      .row
-        .col-sm-2
-          - if content_for? :leftnav 
-            = yield :leftnav
-        .col-sm-8
-          = yield
-        .col-sm-2
-          - if  content_for? :right  
-            = yield :right
+  .main= yield
   = render 'layouts/footer'
