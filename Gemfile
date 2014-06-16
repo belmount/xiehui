@@ -57,3 +57,4 @@ gem 'therubyracer', platform: :ruby
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 gem 'bootstrap-datepicker-rails'
 gem 'kaminari'
+gem 'haml-rails'

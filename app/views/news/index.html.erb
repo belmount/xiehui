@@ -4,26 +4,39 @@
 <% @news.each do |news| %>
   <div>
     <h3>
-      <%=link_to news.title, news %>
+    <%=news.title %>
     </h3>
-    <p><%= news.happend_at %><p/>
+    <p><p/>
     <hr/>
     <div class="row">
       <div class="col-xs-2">
-        <%if news.first_img_url.nil? then%>
-          <%=holder_tag '50x50', "#{news_type_text(news.ntype)}", 'lava' %>
-        <%else%>
-          <%= image_tag news.first_img_url, {height: 50, width: 50}%>
-        <%end%>
+        <a href="<%= news_path(news)%>">
+          <%if news.first_img_url.nil? then%>
+            <%=holder_tag '50x50', "#{news_type_text(news.ntype)}", 'lava' %>
+          <%else%>
+            <%= image_tag news.thumb_img_url, {height: 50, width: 50}%>
+          <%end%>
+         </a>
+          <p>
+          <%= news.happend_at %>
+          </p>
+
       </div>
       <div class="col-xs-8">
-        <%=content_preview news.content, 50%>...
+        <%=content_preview news.content, 50%>
+        ...
+        <a href='<%=news_path(news)%>'>
+        <span class="text-primary glyphicon glyphicon-circle-arrow-right">
+        </span>
+        </a>
       </div>
     </div>
+    <% if user_signed_in? %>
     <p>
-      <%= link_to 'Edit', edit_news_path(news) %>
+      <%= link_to 'edit', edit_news_path(news) %>
       <%= link_to 'Destroy', news, method: :delete, data: { confirm: '确认删除?' } %>
     </p>    
+    <% end %>
   </div>
 <% end %>
   

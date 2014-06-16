@@ -7,9 +7,6 @@
     = csrf_meta_tags
 %body{"class"=> controller.controller_name}
   = render "layouts/navbar"
-  %section
-    .alert-info= notice
-    .alert-warning= alert
   .main
     .container
       .row
@@ -17,6 +14,9 @@
           - if content_for? :leftnav 
             = yield :leftnav
         .col-sm-8
+          .text-info= notice
+          .text-danger
+            %h4= alert
           = yield
         .col-sm-2
           - if  content_for? :right  
