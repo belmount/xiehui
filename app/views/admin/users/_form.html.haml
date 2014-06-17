@@ -7,5 +7,6 @@
           %li= msg
   = f.input :email, input_html: {:class=> 'form-control'}
   = f.input :password, label: :密码, input_html: {:class=> 'form-control'}
+  = f.input :role, label: :角色, collection: User::ROLES, label_method: :last, value_method: :first
   .actions
     = f.submit '保存'
