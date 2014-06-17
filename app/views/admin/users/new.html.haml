@@ -1,0 +1,7 @@
+.row
+  .col-sm-6.center-block
+    %ol.breadcrumb
+      %li=link_to '用户管理', admin_users_path
+      %li.active 新建用户
+
+    = render 'form'

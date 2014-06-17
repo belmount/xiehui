@@ -19,5 +19,8 @@
           - menu.each do |k, v|
             %li= link_to k, v
         %ul.nav.navbar-nav.navbar-right
-          %li
-            =link_to '登陆', '#'
+          - if user_signed_in? 
+            %li= link_to '退出', destroy_user_session_path, :method=>:delete  
+          - else
+            %li
+              =link_to '登陆',  new_user_session_path

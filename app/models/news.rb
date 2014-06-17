@@ -23,4 +23,7 @@ class News < ActiveRecord::Base
   validates :title, presence: true
   validates :content, presence: true
   validates :happend_at, presence: true
+
+  default_scope {order(happend_at: :desc)}
+  scope :last5, -> {limit(5)}
 end

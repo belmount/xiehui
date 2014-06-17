@@ -8,10 +8,10 @@
       =image_tag 'newspaper_pictogram.svg', {height: 200, width:200}
     .col-sm-8.large-link
       %ul.list-unstyled
-        -for i in 1..7 do
+        -@news.each do |news|
           %li
-            %span.label.label-default=DateTime.current.change(day: -i).to_s(:zh)
-            =link_to '中介信用档案 & 服务评价', '#'
+            %span.label.label-default=news.happend_at
+            =link_to news.title, news
         %li
-          %a.pull-left{href: root_path}
+          %a.pull-left{href: news_index_path}
             %span.text-primary.glyphicon.glyphicon-circle-arrow-right
