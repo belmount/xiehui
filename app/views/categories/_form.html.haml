@@ -1,0 +1,5 @@
+= simple_form_for @category do |f|
+  = f.input :name, label: "名称", required: true, autofocus: true, input_html: {:class=> 'form-control'} 
+  = f.input :ename, label: "英文名称", required: true, autofocus: true, input_html: {:class=> 'form-control'} 
+  = f.input :parent_id, label: '上级类型',collection: Category.first_level, label_method: 'name', value_method: 'id'
+  = f.submit '保存', :class=> 'btn btn-primary'

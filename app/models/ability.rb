@@ -5,6 +5,7 @@ class Ability
     user ||= User.new
     can :manage, :all if user.role == 'admin'
     can :manage, News if user.role == 'editor'
+    can :manage, Category if user.role == 'editor'
 
     # Define abilities for the passed in user here. For example:
     #
