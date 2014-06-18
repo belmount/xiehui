@@ -1,0 +1,17 @@
+
+%ol.breadcrumb
+  %li= link_to '控制面板', control_path
+  %li= link_to '页面', pages_path
+  %li.active=@page.title
+
+.panel
+  .panel-heading
+    = @page.category.full_name if @page.category
+  .panel-body
+    = @page.content.html_safe
+
+    %h5.pull-right= @page.edit_at
+
+ 
+
+= link_to '编辑', edit_page_path(@page), :class=>'btn btn-default'

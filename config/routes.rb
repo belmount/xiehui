@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :categories
 
   resources :news
@@ -14,6 +15,8 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'home/control', as: 'control'
 
+  get 'p/:first_cat', to:'home#category', as: 'cat'
+  get 'c/:sub_cat', to:'home#sub_cat', as: 'subcat'
   namespace :admin do 
     resources :users
   end

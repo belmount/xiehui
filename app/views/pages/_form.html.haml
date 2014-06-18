@@ -1,0 +1,15 @@
+= simple_form_for @page do |f|
+  - if @page.errors.any?
+    %h2.text-danger= "请修正错误后重新提交！"
+
+  = f.input :title, label: :标题, :input_html => {:class => 'form-control'}
+  =f.input :content, label: :内容, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'}}
+  = f.input :edit_at, label: :显示日期 , as: :string
+  = f.input :category_id, label: '页面类型', collection: Category.second_level, label_method: :full_name, value_method: :id
+  .well
+    = f.submit '保存'
+
+:javascript
+  $(document).ready(function(){
+    $('#page_edit_at').datepicker({format: 'yyyy-mm-dd'});
+  })

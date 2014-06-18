@@ -18,6 +18,8 @@
           - menu = {新闻: news_index_path,'会员'=> '#',  培训: '#',政策法规: '#', 办事指南: '#', 关于: '#' }
           - menu.each do |k, v|
             %li= link_to k, v
+          - Category.first_level.each do |c|
+            %li= link_to c.name, cat_path(c.ename)
         %ul.nav.navbar-nav.navbar-right
           - if user_signed_in? 
             %li= link_to '退出', destroy_user_session_path, :method=>:delete  

@@ -1,0 +1,5 @@
+=render 'page_left'
+-if @pages.size == 1 then 
+  =render partial:'page', locals: {page: @pages.first}
+-else
+  =render 'page_list'
