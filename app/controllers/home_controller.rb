@@ -1,9 +1,9 @@
 class HomeController < ApplicationController
   def index
     @news = News.last5
-  	render layout: 'home'
   end
 
-  def abount
+  def control
+    render layout: 'application'
   end
 end

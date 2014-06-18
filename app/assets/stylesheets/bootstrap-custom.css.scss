@@ -52,4 +52,35 @@ $list-group-border:  $list-group-bg;
 }
 
 .main {min-height:600px;}
+
 @import "bootstrap";
+
+.navbar-fixed-top {
+  margin-bottom: 0px;
+  border-top: 2px solid #ef4929;
+  font-size: $font-size-large;
+}
+
+$footer-bg-color:  #554e44;
+$footer-link-color: #AEA495;
+
+.base-ul-links {
+    ul, a{color: $footer-link-color; 
+    text-decoration: none;}
+    a:hover{color: #fff;background-color: $footer-bg-color;}
+}
+
+.footer {
+  @extend .base-ul-links;
+  background-color: $footer-bg-color;
+  color: #EDEBE4;
+}
+
+
+.large-link{
+  @extend .base-ul-links;
+  a:hover{color:  $footer-bg-color;background-color:transparent;}
+  ul { font-size:16px;}
+  li {margin-bottom: 10px;}
+}
+

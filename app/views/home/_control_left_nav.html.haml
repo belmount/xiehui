@@ -1,0 +1,8 @@
+-content_for :leftnav do 
+  %ul.nav.nav-stacked.nav-pills
+    -if can? :manage, User
+      %li= link_to '用户管理', admin_users_path
+    -if can? :manage, News
+      %li= link_to '新闻管理', news_index_path
+    %li= link_to '重设密码', edit_user_registration_path
+  

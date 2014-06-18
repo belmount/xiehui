@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: 
-  content: 
-  type: 
-  happend_at: 
-  first_img_url: MyString
+  title: test
+  content: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  ntype: news
+  happend_at: 2014-04-01
+  first_img_url: 
 
 two:
-  title: 
-  content: 
-  type: 
-  happend_at: 
-  first_img_url: MyString
+  title: gogo
+  content: YYYYYYYYYYYYYY<img src="http://sina.com/test.png"></img>YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
+  ntype: notice
+  happend_at: 2013-04-11
+  first_img_url: 

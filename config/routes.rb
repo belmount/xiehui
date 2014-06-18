@@ -3,10 +3,14 @@ Rails.application.routes.draw do
 
   resources :pages
 
-  devise_for :users
+  devise_for :users, :skip => [:registrations] 
+    as :user do
+      get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'    
+      put 'users/:id' => 'devise/registrations#update', :as => 'user_registration'            
+    end
   mount Ckeditor::Engine => '/ckeditor'
   get 'home/index'
-  get 'home/about', as: 'about'
+  get 'home/control', as: 'control'
 
   namespace :admin do 
     resources :users
