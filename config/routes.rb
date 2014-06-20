@@ -15,8 +15,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'home/control', as: 'control'
 
-  get 'p/:first_cat', to:'home#category', as: 'cat'
-  get 'c/:sub_cat', to:'home#sub_cat', as: 'subcat'
+  get 'p/:first_cat/(:second_cat)/(:pid)', to:'home#category', as: 'cat'
   namespace :admin do 
     resources :users
   end

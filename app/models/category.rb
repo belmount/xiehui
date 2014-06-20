@@ -7,13 +7,14 @@ class Category < ActiveRecord::Base
   validates :ename, presence: true
 
   validate :parent_not_be_self
+  validate :display_order, presence: true,  numericality: {only_integer: true}
   def parent_not_be_self
     if parent && parent.id == id then
       errors.add(:parent_id, "上级类型不能为自己")
     end
   end
 
-  default_scope {order(:parent_id)}
+  default_scope {order(:parent_id, :display_order)}
   scope :first_level, ->{where(parent_id: nil)}
   scope :second_level, ->{where("parent_id is not null")}
 

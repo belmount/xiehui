@@ -1,10 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_action :set_admin_user, only: [:show, :edit, :update, :destroy]
-  before_action :check_permissions
-
-  def check_permissions
-    authorize! :manage, User
-  end
+  authorize_resource
 
   # GET /admin/users
   # GET /admin/users.json

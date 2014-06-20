@@ -29,7 +29,7 @@ class NewsController < ApplicationController
 
     respond_to do |format|
       if @news.save
-        format.html { redirect_to @news, notice: 'News was successfully created.' }
+        format.html { redirect_to @news }
         format.json { render :show, status: :created, location: @news }
       else
         format.html { render :new }

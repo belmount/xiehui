@@ -1,3 +1,12 @@
-%ul
-  -@pages.each do |p|
-    %li= p.title
+.row
+  %ol.breadcrumb
+    %li= link_to @cat.name, cat_path(@cat.ename)
+    -if @sub
+      %li.active=@sub.name
+
+-@pages.each do |p|
+  .row
+    %h4.border-default=link_to p.title, cat_path(first_cat: p.category.parent.ename, second_cat: p.category.ename, pid: p.id)
+    %p
+      = content_preview p.content, 100
+      ='...'

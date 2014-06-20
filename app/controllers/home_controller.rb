@@ -9,13 +9,20 @@ class HomeController < ApplicationController
 
   def category
     @cat = Category.where(ename: params[:first_cat]).first
-    @pages= @cat.sub_categories.first.pages
+    if params[:second_cat].present?
+      @sub =  @cat.sub_categories.where(ename:params[:second_cat]).first
+    else
+      @sub = @cat.sub_categories.first
+    end
+    if (@sub && params[:pid].present?)
+      @pid = params[:pid]
+      @pages = Page.where(id: @pid)
+    elsif  @sub then
+      @pages= @sub.pages
+    else
+      @pages=[]
+    end
     render layout: 'application'
-  end
-
-  def sub_cat
-    @cat = Category.where(ename: params[:first_cat]).first
-    render 'category', layout: 'application'
   end
 
   def page

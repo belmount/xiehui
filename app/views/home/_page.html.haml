@@ -1,11 +1,16 @@
 %ol.breadcrumb
   %li= link_to page.category.parent.name, cat_path(page.category.parent.ename)
-  %li.active=page.category.name
+  - if @pid.present? 
+    %li= link_to page.category.name, cat_path(first_cat:page.category.parent.ename, second_path: page.category.ename)
+    %li= page.title
+  - else
+    %li.active=page.category.name
 
-%h1= page.category.name
-%p
-  %strong= "--#{page.edit_at}"
+%h1= page.title
 %hr
   = page.content.html_safe
+%hr
+%p.pull-right
+  %strong= "--#{page.edit_at}"
 
 

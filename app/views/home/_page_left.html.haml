@@ -1,4 +1,4 @@
 -content_for :leftnav do 
   %ul.nav.nav-stacked.nav-pills
     -@cat.sub_categories.each do |c|
-      %li= link_to c.name, subcat_path(c.ename)
+      %li= link_to c.name, cat_path(first_cat:@cat.ename, second_cat:c.ename)
