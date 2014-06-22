@@ -20,6 +20,12 @@
           <p>
           <%= news.happend_at %>
           </p>
+          <% if can? :manage, news %>
+          <p>
+            <%= link_to glyphicon('edit'), edit_news_path(news) %>
+            <%= link_to glyphicon('remove'), news, method: :delete, data: { confirm: '确认删除?' } %>
+          </p>    
+          <% end %>
 
       </div>
       <div class="col-xs-8">
@@ -31,14 +37,12 @@
         </a>
       </div>
     </div>
-    <% if user_signed_in? %>
-    <p>
-      <%= link_to 'edit', edit_news_path(news) %>
-      <%= link_to 'Destroy', news, method: :delete, data: { confirm: '确认删除?' } %>
-    </p>    
-    <% end %>
+  
   </div>
 <% end %>
-  
+
+<%=paginate @news%>
 <br>
-<%= link_to '新建', new_news_path, :class => 'btn btn-info' %>
+<% if can? :manage, News %>
+  <%= link_to '新建', new_news_path, :class => 'btn btn-info' %>
+<% end %>

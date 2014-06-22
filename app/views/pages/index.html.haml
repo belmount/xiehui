@@ -19,7 +19,7 @@
       %td= link_to '内容', page
       %td= link_to glyphicon('edit'), edit_page_path(page)
       %td= link_to glyphicon('remove'), page, :method => :delete, :data => { :confirm => '确认删除?' }
-
+=paginate @pages
 %br
 
 = link_to '+新建页面', new_page_path, :class=>'btn btn-success'
