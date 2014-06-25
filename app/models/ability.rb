@@ -5,7 +5,6 @@ class Ability
     user ||= User.new
     can :manage, :all if user.role == 'admin'
     if user.role == 'editor'
-        can :manage, News 
         can :manage, Category
         can :manage, Page
     end 

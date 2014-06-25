@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @news = News.last5
+    news_cat = Category.where(ename: 'news').first
+    @news = Page.where(category: news_cat.sub_categories).limit(5)
   end
 
   def control

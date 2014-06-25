@@ -15,7 +15,7 @@
       #nb.navbar-collapse.collapse
 
         %ul.nav.navbar-nav
-          - menu = {新闻: news_index_path,'会员'=> '#',  培训: '#' }
+          - menu = {'会员'=> '#',  培训: '#' }
           - menu.each do |k, v|
             %li= link_to k, v
           - Category.first_level.each do |c|

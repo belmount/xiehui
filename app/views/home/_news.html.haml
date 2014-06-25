@@ -10,8 +10,8 @@
       %ul.list-unstyled
         -@news.each do |news|
           %li
-            %span.label.label-default=news.happend_at
-            =link_to news.title, news
+            %span.label.label-default=news.edit_at
+            =link_to news.title, cat_page_path(news)
         %li
-          %a.pull-left{href: news_index_path}
+          %a.pull-left{href: cat_path(:news)}
             %span.text-primary.glyphicon.glyphicon-circle-arrow-right

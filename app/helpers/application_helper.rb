@@ -10,4 +10,10 @@ module ApplicationHelper
   def glyphicon(icon_name)
     "<span class='glyphicon glyphicon-#{icon_name}'><span>".html_safe
   end
+
+  def cat_page_path(page)
+    cat_path(first_cat: page.category.parent.ename,
+        second_cat: page.category.ename,
+        pid: page.id)
+  end
 end
