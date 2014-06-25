@@ -1,7 +1,11 @@
 class HomeController < ApplicationController
   def index
     news_cat = Category.where(ename: 'news').first
-    @news = Page.where(category: news_cat.sub_categories).limit(5)
+    if news_cat 
+      @news = Page.where(category: news_cat.sub_categories).limit(5)
+    else
+      @news = []
+    end
   end
 
   def control
