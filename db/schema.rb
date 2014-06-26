@@ -40,16 +40,6 @@ ActiveRecord::Schema.define(version: 20140625132412) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
-  create_table "news", force: true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.string   "ntype"
-    t.date     "happend_at"
-    t.string   "first_img_url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "pages", force: true do |t|
     t.string   "title"
     t.text     "content"

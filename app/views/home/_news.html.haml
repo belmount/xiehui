@@ -1,17 +1,30 @@
-.col-xs-11.border-default
-  %h3 
-    新闻
-    %span.text-primary &
-    通告
-  .row
-    .col-sm-4
-      =image_tag 'newspaper_pictogram.svg', {height: 200, width:200}
-    .col-sm-8.large-link
-      %ul.list-unstyled
-        -@news.each do |news|
-          %li
-            %span.label.label-default=news.edit_at
-            =link_to news.title, cat_page_path(news)
+%h3 
+  新闻
+  %span.text-primary &
+  通告
+.row
+  .col-sm-6
+    -if news.with_imgs.length > 0
+      #slide.carousel.slide{'data-ride'=> 'carousel'}
+        %ol.carousel-indicators
+          -for i in 0..(news.with_imgs.length) do 
+            %li{'data-target'=>'#slide', 'data-slide-to'=> i, :class => "#{'active' if i==0}"}
+        .carousel-inner
+          -news.with_imgs.each_with_index do |n, i|
+            .item{:class=>"#{'active' if i==0}"}
+              =image_tag n.thumb_img_url, {height: 200, width: 400 }
+              .carousel-caption
+                %h5=link_to n.title, cat_page_path(n)
+        %a.left.carousel-control{href: '#slide', 'data-slide'=>'prev'}
+          =glyphicon('chevron-left')
+        %a.right.carousel-control{href: '#slide', 'data-slide'=>'next'}
+          =glyphicon('chevron-right')
+  .col-sm-6.large-link
+    %ul.list-unstyled
+      -news.each do |n|
         %li
-          %a.pull-left{href: cat_path(:news)}
-            %span.text-primary.glyphicon.glyphicon-circle-arrow-right
+          %span.label.label-default=n.edit_at
+          =link_to n.title, cat_page_path(n)
+      %li
+        %a.pull-left{href: cat_path(:news)}
+          %span.text-primary.glyphicon.glyphicon-circle-arrow-right

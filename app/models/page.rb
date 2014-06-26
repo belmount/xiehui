@@ -16,12 +16,13 @@ class Page < ActiveRecord::Base
 
 
   def thumb_img_url
-    if first_img_url? and  /^\/ckeditor_assets\//=== first_img_url then
-      first_img_url.gsub(/\/content_/, '/thumb_')
+    if first_img? and  /^\/ckeditor_assets\//=== first_img then
+      first_img.gsub(/\/content_/, '/thumb_')
     else
-      first_img_url
+      first_img
     end 
   end
 
   default_scope {order(edit_at: :desc)}
+  scope :with_imgs, ->{where.not(first_img: nil)} 
 end

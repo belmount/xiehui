@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def glyphicon(icon_name)
-    "<span class='glyphicon glyphicon-#{icon_name}'><span>".html_safe
+    "<span class='glyphicon glyphicon-#{icon_name}'></span>".html_safe
   end
 
   def cat_page_path(page)
