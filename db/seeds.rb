@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 admin = User.create({email: 'admin@xh.com', password: 'password', role: 'admin'  })
 
+
 news = Category.create({name: '新闻', ename: 'news', display_order: 1})
 Category.create({name:'公告', ename: 'notify', display_order: 1, parent: news})
 Category.create({name:'活动', ename: 'event', display_order: 2, parent: news})
