@@ -29,3 +29,8 @@ Please feel free to use a different markup language if you do not plan to run
 gem 'kaminari', github: 'amatsuda/kaminari'
 to fix error on 
 rails g kaminari:views with json convertion
+
+
+git command for ignore
+git update-index --assume-unchanged path/to/file.txt
+git update-index --no-assume-unchanged path/to/file.txt
