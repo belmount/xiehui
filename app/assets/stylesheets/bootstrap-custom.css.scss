@@ -43,7 +43,7 @@ $font-size-h6:            ceil(($font-size-base * 0.85)); // ~12px
 $font-family-sans-serif:  Tahoma, Helvetica, Arial, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", sans-serif;
 $font-family-serif:       Georgia, "Times New Roman", "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑", serif;
 
-body { padding-top: 50px;}
+body { padding-top: 80px;}
 $list-group-bg:        $body-bg;
 $list-group-border:  $list-group-bg;
 
@@ -56,8 +56,9 @@ $list-group-border:  $list-group-bg;
 @import "bootstrap";
 
 .navbar-fixed-top {
-  margin-bottom: 0px;
+  margin-bottom: 10px;
   border-top: 2px solid #ef4929;
+  min-height: 70px;
   font-size: $font-size-large;
 }
 
@@ -86,5 +87,10 @@ $footer-link-color: #AEA495;
 
 .carousel-caption {
   a, a:hover{color: #fff;} 
+}
+
+.panel-default {
+  min-height: 200px;
+  opacity: 0.8;
 }
 

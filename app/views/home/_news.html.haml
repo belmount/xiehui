@@ -1,7 +1,3 @@
-%h3 
-  新闻
-  %span.text-primary &
-  通告
 .row
   .col-sm-6
     -if news.with_imgs.length > 0
@@ -25,6 +21,7 @@
         %li
           %span.label.label-default=n.edit_at
           =link_to n.title, cat_page_path(n)
-      %li
-        %a.pull-left{href: cat_path(:news)}
-          %span.text-primary.glyphicon.glyphicon-circle-arrow-right
+      -if news.length > 0 
+        %li
+          %a.pull-left{href: cat_path(:news)}
+            %span.text-primary.glyphicon.glyphicon-circle-arrow-right

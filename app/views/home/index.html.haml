@@ -1,35 +1,41 @@
 %section
   .container
     .row
-      .col-sm-8 
-        -# news
+      .col-sm-8.panel-body
+        .alert.alert-title
+        %h3
+          %span.text-primary=glyphicon('envelope') 
+          新闻
+          %span.text-primary &
+          通告
         =render partial:'news', locals:{news: @news} 
         
                
-      .col-sm-4.large-link
-        .row
-          .col-xs-10
-            %h3 
-              消费者
-              =image_tag 'shopping_cart.svg', {heigt: 40, width: 40}
-            %ul.list-unstyled
-              %li=link_to "中介信用档案 & 服务评价", 'http://jjjg.027xf.com'
-              %li=link_to "购房交易知识", '#'
-              %li=link_to "曝光台", '#'
-              %li
-                %a.pull-left{href: root_path}
-                  %span.text-primary.glyphicon.glyphicon-circle-arrow-right
-        
+      .col-sm-4.large-link.panel-body
+        .alert.alert-title
+        %h3 
+          %span.text-primary=glyphicon('shopping-cart')
+          消费者
+            
+        %ul.list-unstyled
+          %li=link_to "中介信用档案 & 服务评价", 'http://jjjg.027xf.com'
+          %li=link_to "购房交易知识", '#'
+          %li=link_to "曝光台", '#'
+          %li
+            %a.pull-left{href: root_path}
+              %span.text-primary.glyphicon.glyphicon-circle-arrow-right   
 
 %section
   .container
     .row.large-link
-      .col-sm-8
+      .col-sm-8.panel-body
+        .alert.alert-title
+        %h3 
+          %span.text-primary=glyphicon('user')
+          会员
+            
         .row
-          .col-xs-5.border-top
-            %h3 
-              会员
-              =image_tag 'worldwide_community.svg', {height: 40, width: 40}
+          .col-xs-5
             %ul.list-unstyled
               %li= link_to "会员权益", '#'
               %li= link_to "法律咨询", '#'
@@ -37,10 +43,7 @@
               %li= link_to "同行互助", '#'
             %a.pull-left{href: root_path}
               %span.text-primary.glyphicon.glyphicon-circle-arrow-right
-          .col-xs-5.col-xs-offset-1.border-top
-            %h3.text-primary 
-              副会长单位
-              =image_tag 'wheel.svg',  {height: 40, width: 40}
+          .col-xs-5.col-xs-offset-1
             .row
               -3.times do
                 .col-xs-4
@@ -48,23 +51,26 @@
                     - 5.times do
                       %li=link_to '百居易', '#'
 
-      .col-sm-4
-        .row
-          .col-xs-11.border-top
-            %h3 
-              经纪机构
-              =image_tag 'zebra-heart-plain.svg',  {height: 40, width: 40}
-              
-            %ul.list-unstyled
-              %li= link_to '存量房网签系统', '#'
-              %li= link_to '房屋租赁备案系统', '#'
-              %li= link_to '中介服务预受理系统', '#'
-              %li= link_to '资格证培训', '#'
-              %li= link_to '继续教育培训', '#'
-            %a.pull-left{href: root_path}
-              %span.text-primary.glyphicon.glyphicon-circle-arrow-right
+      .col-sm-4.panel-body
+        .alert.alert-title
+        %h3
+          %span.text-primary=glyphicon('certificate')
+          经纪机构
+          
+            
+        %ul.list-unstyled
+          %li= link_to '存量房网签系统', '#'
+          %li= link_to '房屋租赁备案系统', '#'
+          %li= link_to '中介服务预受理系统', '#'
+          %li= link_to '资格证培训', '#'
+          %li= link_to '继续教育培训', '#'
+        %a.pull-left{href: root_path}
+          %span.text-primary.glyphicon.glyphicon-circle-arrow-right
 
-           
+.container
+  .row
+    .col-xs-12
+      =holder_tag '100%x100','广告', 'sky'               
        
 %section
   .container

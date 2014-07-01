@@ -2,19 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$navbar-default-bg: #ff8700;
+$navbar-default-bg: #f5f5ed;
 $footer-link-color: #AEA495;
 $footer-bg-color:  #554e44;
 $brand-primary: #ef4929;
+$body-bg:  #f5f5ed;
+$gray-light: #EDEBE4;
+$title-color: $gray-light;
 .home {
   hr {border:1px solid #D8D2C8;}
-  
-  .wrapper1{
-    background-color:  #ffffff;
-    background-position: 20% 50%;
-    background-image: url(bg2.svg);
-    color: #fff;
-  }
 
   .community-bg {
     background-image: url('worldwide_community.svg');
@@ -26,6 +22,13 @@ $brand-primary: #ef4929;
     margin-top: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid #d8d2c8;
+  }
+  .alert{
+    padding: 5px;
+  }
+  .alert-title {
+    background-color: $title-color;
+    border-color:  $title-color;
   }
   .border-top {
     margin-top: 10px;
