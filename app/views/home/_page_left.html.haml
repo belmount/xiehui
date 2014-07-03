@@ -1,4 +1,4 @@
 -content_for :leftnav do 
-  %ul.nav.nav-stacked.nav-pills
+  .list-group
     -@cat.sub_categories.each do |c|
-      %li= link_to c.name, cat_path(first_cat:@cat.ename, second_cat:c.ename)
+      =link_to c.name, cat_path(first_cat:@cat.ename, second_cat:c.ename), class: "list-group-item #{'active' if params[:second_cat]==c.ename}"

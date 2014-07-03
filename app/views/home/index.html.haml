@@ -1,86 +1,70 @@
-%section
-  .container
+=javascript_include_tag 'jquery.backstretch.min'
+.row
+  #left-col.col-lg-8
+    =render partial:'news', locals:{news: @news} 
     .row
-      .col-sm-8.panel-body
-        .alert.alert-title
-        %h3
-          %span.text-primary=glyphicon('envelope') 
-          新闻
-          %span.text-primary &
-          通告
-        =render partial:'news', locals:{news: @news} 
-        
-               
-      .col-sm-4.large-link.panel-body
-        .alert.alert-title
-        %h3 
-          %span.text-primary=glyphicon('shopping-cart')
-          消费者
-            
-        %ul.list-unstyled
-          %li=link_to "中介信用档案 & 服务评价", 'http://jjjg.027xf.com'
-          %li=link_to "购房交易知识", '#'
-          %li=link_to "曝光台", '#'
-          %li
-            %a.pull-left{href: root_path}
-              %span.text-primary.glyphicon.glyphicon-circle-arrow-right   
+      .col-lg-6
+        .widget.large-link(style='background-color: #c27d23')
+          =icon('group') 
+          %h4 
+            会员
+          %hr
+          %ul.list-unstyled
+            %li= link_to "会员权益", '#'
+            %li= link_to "法律咨询", '#'
+            %li= link_to "市场研究", '#'
+            %li= link_to "同行互助", '#'
+      .col-lg-6
+        .widget.large-link(style='background-color: #4e8031')
+          =icon('group') 
+          %h4 
+            会员
+          %hr
+          %ul.list-unstyled
+            %li= link_to "会员权益", '#'
+            %li= link_to "法律咨询", '#'
+            %li= link_to "市场研究", '#'
+            %li= link_to "同行互助", '#'
+    .row
+      .col-lg-12
+        .widget-no-bottom(style='background-color: #4e8031')
+          =icon('chevron-right') 
+          %h4 赞助商
+        .clear-fix
+          %ul.list-group
+            -5.times do
+              %li.list-group-item test
 
-%section
-  .container
-    .row.large-link
-      .col-sm-8.panel-body
-        .alert.alert-title
-        %h3 
-          %span.text-primary=glyphicon('user')
-          会员
-            
-        .row
-          .col-xs-5
-            %ul.list-unstyled
-              %li= link_to "会员权益", '#'
-              %li= link_to "法律咨询", '#'
-              %li= link_to "市场研究", '#'
-              %li= link_to "同行互助", '#'
-            %a.pull-left{href: root_path}
-              %span.text-primary.glyphicon.glyphicon-circle-arrow-right
-          .col-xs-5.col-xs-offset-1
-            .row
-              -3.times do
-                .col-xs-4
-                  %ul.list-unstyled
-                    - 5.times do
-                      %li=link_to '百居易', '#'
-
-      .col-sm-4.panel-body
-        .alert.alert-title
-        %h3
-          %span.text-primary=glyphicon('certificate')
-          经纪机构
-          
-            
-        %ul.list-unstyled
-          %li= link_to '存量房网签系统', '#'
-          %li= link_to '房屋租赁备案系统', '#'
-          %li= link_to '中介服务预受理系统', '#'
-          %li= link_to '资格证培训', '#'
-          %li= link_to '继续教育培训', '#'
-        %a.pull-left{href: root_path}
-          %span.text-primary.glyphicon.glyphicon-circle-arrow-right
-
-.container
-  .row
-    .col-xs-12
-      =holder_tag '100%x100','广告', 'sky'               
-       
-%section
-  .container
-    %h3 赞助商
-    %hr
-    - 2.times do 
-      .row
-        %br
-        -3.times do
-          .col-sm-4 
-            =holder_tag '300x100', 'brand-logo', 'lava'
       
-    %br
+           
+  #right-col.col-lg-4
+    - h1 = holder_tag('100%x100','ad1', 'sky')
+    - h2 = holder_tag('180x100','ad2', 'sky')
+    - imgs = [{url: h1, link: '#'}, {url: h2, link: 'http://sina.com/'}]
+    =render partial: 'carousel', locals: {imgs: imgs, div: 'ads'}
+    .widget.large-link(style='background-color: #388963')
+      =icon('shopping-cart') 
+      %h4
+        消费者
+      %hr    
+      %ul.list-unstyled
+        %li=link_to "中介信用档案 & 服务评价", 'http://jjjg.027xf.com'
+        %li=link_to "购房交易知识", '#'
+        %li=link_to "曝光台", '#'
+
+    .widget.large-link(style='background-color: #2daacd')
+      =icon('cubes') 
+      %h4
+        经纪机构
+      %hr    
+      %ul.list-unstyled
+        %li= link_to '存量房网签系统', '#'
+        %li= link_to '房屋租赁备案系统', '#'
+        %li= link_to '中介服务预受理系统', '#'
+        %li= link_to '资格证培训', '#'
+        %li= link_to '继续教育培训', '#' 
+
+    
+  %br
+:javascript
+  -#$.backstretch("#{image_path('skyline.svg')}");

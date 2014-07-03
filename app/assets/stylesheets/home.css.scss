@@ -1,27 +1,22 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+@import 'variables';
 $navbar-default-bg: #f5f5ed;
 $footer-link-color: #AEA495;
 $footer-bg-color:  #554e44;
-$brand-primary: #ef4929;
-$body-bg:  #f5f5ed;
+$body-bg:  #E0E5E9;
 $gray-light: #EDEBE4;
 $title-color: $gray-light;
 .home {
-  hr {border:1px solid #D8D2C8;}
-
-  .community-bg {
-    background-image: url('worldwide_community.svg');
-    background-size: 100px 200px;
-    background-repeat: no-repeat;
-    background-position:150px 50px;
-  }
   .border-default {
     margin-top: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid #d8d2c8;
+  }
+  .border-left{
+    border-left: 2px dashed;
+    padding-left: -10px;
   }
   .alert{
     padding: 5px;
@@ -45,4 +40,72 @@ $title-color: $gray-light;
   .label-default {
     background-color: lighten($footer-bg-color, 30%);
   }
+
+  .sticky-block {
+    padding: 20px;
+  }
+
+  .widget {
+    position: relative;
+    overflow: hidden;
+    color: #FFF;
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: #42586a;
+    .ct_sticky_widget {
+      padding: 0;
+    }
+  }
+
+  .btn-more-circle {
+    color: #FFF !important;
+    border: 2px solid #FFF;
+    line-height: 26px;
+    border-radius: 30px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    text-align: center;
+    display: block;
+    float: right;
+    width: 30px;
+    height: 30px;
+  }
+
+  .sticky-icon {
+    background-color: #FFF;
+    text-align: center;
+    display: block;
+    width: 40px;
+    height: 40px;
+    color: $brand-primary;
+    position: absolute;
+    top: 0;
+    line-height: 68px;
+    z-index: 100;
+  }
+
+
+  .widget > i, .popular-block > i, .recent-block > i, .custom-cat-block > i {
+    display: block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 26px;
+    border: 2px solid #FFF;
+    border-radius: 30px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 14px;
+    color: #FFF;
+  }
+
+  .widget-no-bottom {
+    @extend .widget;
+    padding: 15px 20px;
+    margin-bottom: 0;
+  }
+
 }

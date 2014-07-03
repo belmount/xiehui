@@ -10,15 +10,16 @@
   .main
     .container
       .row
-        .col-sm-2
+        .col-sm-2.panel-body
           - if content_for? :leftnav 
             = yield :leftnav
-        .col-sm-8
-          .text-info= notice
-          .text-danger
-            %h4= alert
+        .col-sm-8.border-left(style='min-height:750px')
+          -if notice 
+            .alert.alert-info= notice
+          -if alert
+            .alert.alert-danger= alert
           = yield
         .col-sm-2
           - if  content_for? :right  
             = yield :right
-  = render 'layouts/footer'
+      .row= render 'layouts/footer'

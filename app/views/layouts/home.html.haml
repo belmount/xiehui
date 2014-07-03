@@ -7,8 +7,12 @@
     = csrf_meta_tags
 %body{"class"=> controller.controller_name}
   = render "layouts/navbar"
-  %section
-    .alert-info= notice
-    .alert-warning= alert
-  .main= yield
-  = render 'layouts/footer'
+  .main
+    .container
+      %section
+        -if notice.present? then
+          .alert.alert-info= notice
+        -if alert.present? then
+          .alert.alert-warning= alert
+      = yield
+      .row= render 'layouts/footer'

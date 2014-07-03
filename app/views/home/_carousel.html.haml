@@ -1,0 +1,8 @@
+.carousel.slide{'data-ride'=> 'carousel', id: div}
+  %ol.carousel-indicators
+    -for i in 0..(imgs.length) do 
+      %li{'data-target'=>"\##{div}", 'data-slide-to'=> i, :class => "#{'active' if i==0}"}
+  .carousel-inner
+    -imgs.each_with_index do |img, i|
+      .item{:class=>"#{'active' if i==0}"}
+        =link_to img[:url], img[:link]
