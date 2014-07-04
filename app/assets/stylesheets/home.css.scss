@@ -30,6 +30,9 @@ $title-color: $gray-light;
     padding-bottom: 10px;
     border-top: 1px solid #d8d2c8;
   }
+  .border-left{
+    border-left: 1px dotted $brand-primary;
+  }
 
   .large-font{
     font-size: 16px;
@@ -48,18 +51,20 @@ $title-color: $gray-light;
   .widget {
     position: relative;
     overflow: hidden;
-    color: #FFF;
+    color: $brand-danger;
     padding: 20px;
     margin-bottom: 30px;
-    background-color: #42586a;
+    //background-color: #42586a;
+    background-color: #fff;
     .ct_sticky_widget {
       padding: 0;
     }
+    //border:2px solid $brand-danger;
   }
 
   .btn-more-circle {
-    color: #FFF !important;
-    border: 2px solid #FFF;
+    color: $brand-danger !important;
+    border: 2px solid $brand-danger;
     line-height: 26px;
     border-radius: 30px;
     -moz-border-radius: 30px;
@@ -71,18 +76,15 @@ $title-color: $gray-light;
     height: 30px;
   }
 
-  .sticky-icon {
-    background-color: #FFF;
-    text-align: center;
-    display: block;
-    width: 40px;
-    height: 40px;
-    color: $brand-primary;
-    position: absolute;
-    top: 0;
-    line-height: 68px;
-    z-index: 100;
+  .bg-primary{
+    @extend .widget;
+    background: url('content-top-bg.png') no-repeat 15px bottom;
+    padding: 10px 0;
+    margin-bottom: -1px;
+    background-color: $brand_primary;
+    color: #fff;
   }
+
 
 
   .widget > i, .popular-block > i, .recent-block > i, .custom-cat-block > i {
@@ -91,7 +93,7 @@ $title-color: $gray-light;
     height: 30px;
     text-align: center;
     line-height: 26px;
-    border: 2px solid #FFF;
+    border: 2px solid $brand-danger;
     border-radius: 30px;
     -moz-border-radius: 30px;
     -webkit-border-radius: 30px;
@@ -99,13 +101,15 @@ $title-color: $gray-light;
     right: 20px;
     top: 15px;
     font-size: 14px;
-    color: #FFF;
+    color: $brand-danger;
   }
 
   .widget-no-bottom {
     @extend .widget;
+    @extend .border-left;
     padding: 15px 20px;
     margin-bottom: 0;
+    h4 {color: #333;}
   }
 
 }

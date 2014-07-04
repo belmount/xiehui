@@ -1,0 +1,6 @@
+%tr
+  %td= category.name
+  %td= category.ename
+  %td= category.parent.name if category.parent
+  %td= link_to glyphicon('edit'), edit_category_path(category)
+  %td= link_to glyphicon('remove'), category, :method => :delete, :data => { :confirm => '确认删除?' }

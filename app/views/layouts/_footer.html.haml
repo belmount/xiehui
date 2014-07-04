@@ -1,19 +1,22 @@
-%footer.footer
-  %br
-  .row
-    .col-sm-4
-      %p &copy;2014 武汉市房地产中介协会
-      %p 技术支持：武汉速房科技有限公司
-    .col-sm-2
-      %h5 关于
-      %ul.list-unstyled
-        - if not Category.where(ename: 'about').first.nil? then
-          - Category.where(ename: 'about').first.sub_categories.each do | sub|
-            %li=link_to sub.name, cat_path(first_cat:sub.parent.ename, second_cat:sub.ename)
+%footer
+  .container
+    .row
+      .panel-body.footer.text-center
+        %p &copy;2014 武汉市房地产中介协会
+        %p 技术支持：武汉速房科技有限公司
+    .row
+      .col-sm-4
+       
+      .col-sm-2
+        %h5 关于
+        %ul.list-unstyled
+          - if not Category.where(ename: 'about').first.nil? then
+            - Category.where(ename: 'about').first.sub_categories.each do | sub|
+              %li=link_to sub.name, cat_path(first_cat:sub.parent.ename, second_cat:sub.ename)
 
-    .col-sm-2
-      %h5 联系我们
-      %ul.list-unstyled
-        %li 武汉房地产交易大厦二楼大厅
-        %li 
-          %span.glyphicon.glyphicon-phone-alt 85482022
+      .col-sm-2
+        %h5 联系我们
+        %ul.list-unstyled
+          %li 武汉房地产交易大厦二楼大厅
+          %li 
+            %span.glyphicon.glyphicon-phone-alt 85482022

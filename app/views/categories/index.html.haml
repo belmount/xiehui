@@ -1,7 +1,14 @@
 %ol.breadcrumb
   %li= link_to '控制面板', control_path
   %li.active 页面类型管理
-  
+
+.panel-body
+  =form_for :search, html:{class: 'form-inline'}, method: :get do |f|
+    .form-group
+      =f.label '名称', class: 'sr-only'
+      =f.text_field :name, :class=> 'form-control', placeholder: '中英文名称', value: @search_condition
+    =f.submit '查找', class: 'btn btn-primary'
+    
 %table.table
   %tr
     %th 名称
@@ -17,7 +24,9 @@
       %td= category.parent.name if category.parent
       %td= link_to glyphicon('edit'), edit_category_path(category)
       %td= link_to glyphicon('remove'), category, :method => :delete, :data => { :confirm => '确认删除?' }
+    -if @search_condition and category.sub_categories.length > 0
+      =render category.sub_categories
 
 %br
-
+=paginate @categories
 = link_to '+页面类型', new_category_path, {:class=>'btn btn-success'}

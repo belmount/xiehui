@@ -1,19 +1,24 @@
 @import 'variables';
-
-.main > .container {
-    background-color: rgba(255,255,255, 0.8);
+$navbar-default-bg:  #fff;
+.main {
+    //background-color: rgba(255,255,255, 0.8);
     padding-top: 20px;
+    background-image:url('bg-14.png');
+    background-repeat: repeat;
+    background-attachment: fixed;
     min-height:750px;
 }
 
+
 @import "bootstrap";
 
-body { padding-top: 70px; background: #ffa41f;}
+body {background: url('texture_bg.png') repeat scroll 0 0 #444444;
+}
 
-.navbar-fixed-top {
-  margin-bottom: 10px;
+.navbar-static-top {
   border-top: 2px solid #ef4929;
   font-size: $font-size-large;
+  color: black;
   //font-weight: bold;
 }
 
@@ -22,28 +27,26 @@ body { padding-top: 70px; background: #ffa41f;}
   background-color: $brand_primary;
 }
 
-$footer-bg-color:  #554e44;
-$footer-link-color: #AEA495;
 
 .base-ul-links {
-    ul, a{color: white; 
+    ul, a{color: #909090; 
     text-decoration: none;}
-    a:hover{color: #fff;background-color: transparent;}
+    a:hover{color: $brand-primary;background-color: transparent;}
 }
 
 .footer {
-  @extend .base-ul-links;
+  background: url('content-bottom-bg.png') no-repeat center bottom;
+  color: #FFF;
   background-color: $brand-primary;
-  color: #EDEBE4;
-  padding: 10px;
 }
 
 
 .large-link{
   @extend .base-ul-links;
-  a:hover{color:  #fff;background-color:transparent;}
+  a:hover{color:  $brand-primary;background-color:transparent;}
   ul { font-size:16px;}
   li {margin-bottom: 10px;}
+  background-color: rgba(248,248,248,0.8);
 }
 
 

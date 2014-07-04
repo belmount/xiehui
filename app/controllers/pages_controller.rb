@@ -7,7 +7,18 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
-    @pages = Page.all.page params[:page]
+    if params[:edit_s] or params[:edit_e] or params[:title] or params[:page_type] then
+      e = DateTime.current
+      s = nil
+      if params[:edit_s] and params[:edit_e] then
+        e = params[:edit_e].to_datetime
+        s = params[:edit_s].to_datetime
+      end
+      type ||= Category.find(params[:page_type])
+      @pages = Page.with_title(params[:title]).within_date(s, e).with_type(type).page params[:page]
+    else
+      @pages = Page.all.page params[:page]
+    end
   end
 
   # GET /pages/1

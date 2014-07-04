@@ -1,6 +1,22 @@
 %ol.breadcrumb
   %li= link_to '控制面板', control_path
   %li.active 页面
+-content_for :right do 
+  .panel.panel-body
+    =form_tag(pages_url,  method: :get) do 
+      .form-group
+        =label_tag :title,'标题', class: 'sr-only'
+        =text_field_tag :title, params[:title], :class=> 'form-control', placeholder: '标题'
+      .form-group
+        =label_tag :edit_s,'编辑时间(min)', class: 'sr-only'
+        =text_field_tag :edit_s, params[:edit_s], :class=> 'form-control',placeholder:'编辑时间(min)'
+      .form-group
+        =label_tag :edit_e,'编辑时间(max)', class: 'sr-only'
+        =text_field_tag :edit_e, params[:edit_e], :class=> 'form-control',placeholder:'编辑时间(max)'
+      .form-group
+        =label_tag :page_type,'页面类型', class: 'sr-only'
+        =select_tag :page_type, options_from_collection_for_select(Category.first_level, "id", "name", params[:page_type])
+      =submit_tag '查找', class: 'btn btn-primary'
 
 %table.table
   %tr
@@ -23,3 +39,9 @@
 %br
 
 = link_to '+新建页面', new_page_path, :class=>'btn btn-success'
+
+:javascript
+  $(document).ready(function(){
+    $('#edit_s').datepicker({format: 'yyyy-mm-dd',language:"zh-CN"});
+    $('#edit_e').datepicker({format: 'yyyy-mm-dd',language:"zh-CN"});
+  })

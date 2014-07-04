@@ -25,4 +25,8 @@ class Page < ActiveRecord::Base
 
   default_scope {order(edit_at: :desc)}
   scope :with_imgs, ->{where.not(first_img: nil)} 
+
+  scope :with_title, ->(title){where('title like ?', "%#{title}%") if title}
+  scope :within_date, ->(date1, date2){where(edit_at: (date1..date2)) if date1 && date2}
+  scope :with_type, ->(type){where(category: type.sub_categories) if type}
 end

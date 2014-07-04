@@ -3,4 +3,5 @@
   = f.input :ename, label: "英文名称", required: true, autofocus: true, input_html: {:class=> 'form-control'} 
   = f.input :parent_id, label: '上级类型',collection: Category.first_level, label_method: 'name', value_method: 'id'
   = f.input :display_order, label: '显示顺序', input_html: {:class=> 'form-control'} 
+  = f.input :position, label: '显示位置', collection: Category::POSITIONS, label_method: :last, value_method: :first
   = f.submit '保存', :class=> 'btn btn-primary'

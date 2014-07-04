@@ -4,59 +4,46 @@
     =render partial:'news', locals:{news: @news} 
     .row
       .col-lg-6
-        .widget.large-link(style='background-color: #c27d23')
+        .widget-no-bottom
           =icon('group') 
           %h4 
             会员
-          %hr
+        .panel.panel-body.large-link
           %ul.list-unstyled
             %li= link_to "会员权益", '#'
             %li= link_to "法律咨询", '#'
             %li= link_to "市场研究", '#'
             %li= link_to "同行互助", '#'
       .col-lg-6
-        .widget.large-link(style='background-color: #4e8031')
+        .widget-no-bottom
           =icon('group') 
           %h4 
             会员
-          %hr
+        .panel.panel-body.large-link
           %ul.list-unstyled
             %li= link_to "会员权益", '#'
             %li= link_to "法律咨询", '#'
             %li= link_to "市场研究", '#'
             %li= link_to "同行互助", '#'
-    .row
-      .col-lg-12
-        .widget-no-bottom(style='background-color: #4e8031')
-          =icon('chevron-right') 
-          %h4 赞助商
-        .clear-fix
-          %ul.list-group
-            -5.times do
-              %li.list-group-item test
-
       
            
   #right-col.col-lg-4
-    - h1 = holder_tag('100%x100','ad1', 'sky')
-    - h2 = holder_tag('180x100','ad2', 'sky')
-    - imgs = [{url: h1, link: '#'}, {url: h2, link: 'http://sina.com/'}]
-    =render partial: 'carousel', locals: {imgs: imgs, div: 'ads'}
-    .widget.large-link(style='background-color: #388963')
+    = holder_tag('100%x100','ad1', 'sky')
+    .widget-no-bottom
       =icon('shopping-cart') 
       %h4
         消费者
-      %hr    
+    .panel.panel-body.large-link   
       %ul.list-unstyled
         %li=link_to "中介信用档案 & 服务评价", 'http://jjjg.027xf.com'
         %li=link_to "购房交易知识", '#'
         %li=link_to "曝光台", '#'
 
-    .widget.large-link(style='background-color: #2daacd')
+    .widget-no-bottom
       =icon('cubes') 
       %h4
         经纪机构
-      %hr    
+    .panel.panel-body.large-link   
       %ul.list-unstyled
         %li= link_to '存量房网签系统', '#'
         %li= link_to '房屋租赁备案系统', '#'
@@ -64,7 +51,29 @@
         %li= link_to '资格证培训', '#'
         %li= link_to '继续教育培训', '#' 
 
-    
-  %br
+.row
+  .col-lg-12
+    .clear-fix
+      #banners
+        .row
+          -(1..4).each do |i|
+            .col-xs-6.col-sm-3
+              %a.thumbnail(href='#')
+                =holder_tag '180x100', i, 'sky'
+-#$.backstretch("#{image_path('skyline.svg')}");
+
 :javascript
-  -#$.backstretch("#{image_path('skyline.svg')}");
+  $(document).ready(function(){
+    var height= $('#banners').prop('scrollHeight')/2 -100;
+    console.log(height);
+    //setInterval(function(){
+      / var currentPos = $('#banners').scrollTop();
+      / if(currentPos> height) {
+      /   currentPos = 0;
+      /   $('#banners').scrollTop(currentPos);
+      / } else {
+      /   $('#banners').scrollTop(130+ currentPos);
+      / }
+      
+      / }, 2000);
+  });

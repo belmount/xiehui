@@ -1,5 +1,5 @@
 %header
-  .navbar.navbar-fixed-top.navbar-default
+  .navbar-static-top.navbar-default
     .container
       .navbar-header
         %a.navbar-brand{href: root_path}
@@ -18,7 +18,7 @@
           - menu = {'会员'=> '#',  培训: '#' }
           - menu.each do |k, v|
             %li= link_to k, v
-          - Category.first_level.each do |c|
+          - Category.first_level.top.each do |c|
             %li= link_to c.name, cat_path(c.ename)
         %ul.nav.navbar-nav.navbar-right
           - if user_signed_in? 

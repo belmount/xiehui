@@ -1,9 +1,12 @@
 .row
   .col-lg-12
-    .widget(style='background-color: #6a4248')
+    .bg-primary
+      =icon('share') 
+      %h4.text-center(style='color:#fff')
+        新闻 & 通告
+    .panel.panel-body
       .row
         .col-sm-6
-          .sticky-icon=icon('share-alt', '', class: 'fa-2x') 
           -if news.with_imgs.length > 0
             #slide.carousel.slide{'data-ride'=> 'carousel'}
               %ol.carousel-indicators
@@ -20,11 +23,7 @@
               %a.right.carousel-control{href: '#slide', 'data-slide'=>'next'}
                 =glyphicon('chevron-right')
         .col-sm-6.large-link
-          %h4
-            新闻
-            %span.text-primary &
-            通告
-          %hr
+          
           %ul.list-unstyled
             -news.each do |n|
               %li(style='border-bottom: 1px dashed;')
