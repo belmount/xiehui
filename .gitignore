@@ -18,3 +18,5 @@
 # Ignore public assets files.
 /public/assets
 /config/secrets.yml
+/public/ckeditor_assets
+/public/system
