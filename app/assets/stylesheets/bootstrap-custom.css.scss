@@ -39,14 +39,31 @@ body {background: url('texture_bg.png') repeat scroll 0 0 #444444;
   color: #FFF;
   background-color: $brand-primary;
 }
+footer {
+  h4,h5 { border-left:1px dotted $brand-primary; padding-left:5px; color: #f2f2f2;}
+  a{color:#ccc;}
+}
 
 
 .large-link{
   @extend .base-ul-links;
   a:hover{color:  $brand-primary;background-color:transparent;}
-  ul { font-size:16px;}
-  li {margin-bottom: 10px;}
-  background-color: rgba(248,248,248,0.8);
+  span {
+    width: 50px;
+    background: $brand-primary;
+    height: 2px;
+    display: block;
+    margin: 5px auto;
+  }
+  padding: 15px 30px;
+  //ul { font-size:16px;}
+  // li {margin-bottom: 10px;}
+}
+
+.widget-no-bottom + .large-link {
+  border-bottom: 2px solid $brand-primary;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 

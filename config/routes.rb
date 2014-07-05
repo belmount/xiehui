@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :members
+
   resources :categories
 
   resources :pages
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
       put 'users/:id' => 'devise/registrations#update', :as => 'user_registration'            
     end
   mount Ckeditor::Engine => '/ckeditor'
+  
   get 'home/index'
   get 'home/control', as: 'control'
 

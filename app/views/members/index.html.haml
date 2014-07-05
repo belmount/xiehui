@@ -1,0 +1,29 @@
+%h1 会员单位
+
+- @members.each do |member|
+  .row
+    %h4 
+      =member.name
+      %small=member.type
+    %p
+      %small=member.address
+      =icon('phone')
+      = member.tel
+    %p
+      %strong 
+        法人
+        = member.legal_person
+      %small= member.legal_tel
+    %p 
+      %strong
+        联系人
+        = member.contract
+      %small= member.contract_tel
+    %p
+      = link_to 'Show', member
+      = link_to 'Edit', edit_member_path(member)
+      = link_to 'Destroy', member, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Member', new_member_path

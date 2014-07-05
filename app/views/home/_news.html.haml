@@ -27,11 +27,10 @@
           %ul.list-unstyled
             -news.each do |n|
               %li(style='border-bottom: 1px dashed;')
-                %p=link_to n.title, cat_page_path(n)
                 %p
+                  =link_to n.title, cat_page_path(n)
                   %small="#{time_ago_in_words(n.edit_at)}前"
-
-            -if news.length > 0 
-              %li
-                %a.btn-more-circle.pull-left{href: cat_path(:news)}
-                  =icon('chevron-right')
+                  
+          %p
+            %a.btn-more-circle.pull-left{href: cat_path(:news)}
+              =icon('chevron-right')

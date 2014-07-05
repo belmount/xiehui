@@ -6,5 +6,6 @@
       = link_to '页面类型管理', categories_path,class:'list-group-item'
     -if can? :manage, Page
       = link_to '页面管理', pages_path, class:'list-group-item'
+    -if can? :manage, Member
+      = link_to '会员管理', members_path, class: 'list-group-item'
     = link_to '重设密码', edit_user_registration_path, class:'list-group-item'
-  

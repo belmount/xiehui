@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @member.name
+%p
+  %b Address:
+  = @member.address
+%p
+  %b Tel:
+  = @member.tel
+%p
+  %b Legal person:
+  = @member.legal_person
+%p
+  %b Legal tel:
+  = @member.legal_tel
+%p
+  %b Contract:
+  = @member.contract
+%p
+  %b Contract tel:
+  = @member.contract_tel
+%p
+  %b Url:
+  = @member.url
+%p
+  %b Logo url:
+  = @member.logo_url
+%p
+  %b Type:
+  = @member.type
+
+= link_to 'Edit', edit_member_path(@member)
+\|
+= link_to 'Back', members_path

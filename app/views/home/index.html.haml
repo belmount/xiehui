@@ -1,34 +1,10 @@
 =javascript_include_tag 'jquery.backstretch.min'
 .row
-  #left-col.col-lg-8
-    =render partial:'news', locals:{news: @news} 
-    .row
-      .col-lg-6
-        .widget-no-bottom
-          =icon('group') 
-          %h4 
-            会员
-        .panel.panel-body.large-link
-          %ul.list-unstyled
-            %li= link_to "会员权益", '#'
-            %li= link_to "法律咨询", '#'
-            %li= link_to "市场研究", '#'
-            %li= link_to "同行互助", '#'
-      .col-lg-6
-        .widget-no-bottom
-          =icon('group') 
-          %h4 
-            会员
-        .panel.panel-body.large-link
-          %ul.list-unstyled
-            %li= link_to "会员权益", '#'
-            %li= link_to "法律咨询", '#'
-            %li= link_to "市场研究", '#'
-            %li= link_to "同行互助", '#'
-      
-           
-  #right-col.col-lg-4
+  .col-lg-8
+    =render partial:'news', locals:{news: @news}
+  .col-lg-4
     = holder_tag('100%x100','ad1', 'sky')
+    %br
     .widget-no-bottom
       =icon('shopping-cart') 
       %h4
@@ -38,32 +14,54 @@
         %li=link_to "中介信用档案 & 服务评价", 'http://jjjg.027xf.com'
         %li=link_to "购房交易知识", '#'
         %li=link_to "曝光台", '#'
-
+.row
+  .col-lg-8
+    .row
+      -3.times do 
+        .col-lg-4
+          .widget-no-bottom
+            %span
+            =icon('group') 
+            %h4
+              会员
+          .panel.panel-body.large-link
+            %ul.list-unstyled
+              %li= link_to "会员权益", '#'
+              %li= link_to "法律咨询", '#'
+              %li= link_to "市场研究", '#'
+              %li= link_to "同行互助", '#'
+      
+           
+  #right-col.col-lg-4
     .widget-no-bottom
       =icon('cubes') 
       %h4
         经纪机构
-    .panel.panel-body.large-link   
+      .line
+    .panel.panel-body.large-link 
       %ul.list-unstyled
         %li= link_to '存量房网签系统', '#'
         %li= link_to '房屋租赁备案系统', '#'
         %li= link_to '中介服务预受理系统', '#'
         %li= link_to '资格证培训', '#'
         %li= link_to '继续教育培训', '#' 
+      .triangle
 
 .row
   .col-lg-12
-    .clear-fix
-      #banners
-        .row
-          -(1..4).each do |i|
-            .col-xs-6.col-sm-3
-              %a.thumbnail(href='#')
-                =holder_tag '180x100', i, 'sky'
+    .widget-no-bottom
+      %h4 合作伙伴
+    .panel.panel-body
+      -(1..4).each do |i|
+        .col-xs-6.col-sm-3
+          %a.thumbnail(href='#')
+            =holder_tag '180x100', i, 'sky'
 -#$.backstretch("#{image_path('skyline.svg')}");
 
 :javascript
+
   $(document).ready(function(){
+    $('#banners').backstretch("#{image_path('skyline.svg')}");
     var height= $('#banners').prop('scrollHeight')/2 -100;
     console.log(height);
     //setInterval(function(){
