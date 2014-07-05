@@ -8,3 +8,8 @@ module Paperclip
     end
   end
 end
+
+Paperclip::Attachment.default_options.merge!(
+    :path => ":rails_root/public/system/:class/:attachment/:style/:id.:extension", 
+    :url => "/system/:class/:attachment/:style/:id.:extension"
+)

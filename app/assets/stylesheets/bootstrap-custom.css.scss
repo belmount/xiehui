@@ -15,6 +15,16 @@ $navbar-default-bg:  #fff;
 body {background: url('texture_bg.png') repeat scroll 0 0 #444444;
 }
 
+.field_with_errors {
+  @extend .form-group;
+  padding: 2px;
+  input {border: 1px solid red;}
+  display: table;
+}
+
+.border-left{
+    border-left: 1px dotted $brand-primary;
+  }
 .navbar-static-top {
   border-top: 2px solid #ef4929;
   font-size: $font-size-large;

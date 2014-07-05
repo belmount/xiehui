@@ -16,4 +16,11 @@ module ApplicationHelper
         second_cat: page.category.ename,
         pid: page.id)
   end
+
+  def error_text(hash, key)
+    if hash[key] 
+      msg = hash[key].join(',')
+      "<div class='text-primary'>#{msg}</div>".html_safe
+    end
+  end
 end

@@ -1,20 +1,19 @@
 = form_for @member,:html => { :multipart => true } do |f|
   - if @member.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@member.errors.count, "error")} prohibited this member from being saved:"
-      %ul
-        - @member.errors.full_messages.each do |msg|
-          %li= msg
+    .alert.alert-danger 请修正后重新提交
 
   .form-group
     = f.label :name, '公司名称'
     = f.text_field :name, class: 'form-control'
+    %p=error_text @member.errors, :name
   .form-group
     = f.label :address, '地址'
     = f.text_field :address, class: 'form-control'
+    %p=error_text @member.errors, :address
   .form-group
     = f.label :tel, '公司电话'
     = f.text_field :tel, class: 'form-control'
+    %p=error_text @member.errors, :tel
   .form-group
     .row
       .col-sm-6
@@ -36,11 +35,15 @@
     = f.text_field :url, class: 'form-control'
   .form-group
     .row
-      .col-sm-9
-        = f.label :logo, 'Logo'
-        = f.file_field :avatar :logo, class: 'form-control'
+      .col-sm-6
+        - unless @member.logo.url =~ /missing.png/ 
+          = image_tag @member.logo.url(:medium)
+        - else
+          = holder_tag '180x100', '暂无图像', 'sky'
+        = f.label :logo, '上传Logo', class: 'btn btn-info'
+        = f.file_field :logo, style:"opacity:0"
       .col-sm-3
-        = f.label :type, '会员类型'
-        = f.select :type, options_from_collection_for_select(Member::TYPES, :first, :last), { include_blank: true },class: 'form-control'
+        = f.label :mtype, '会员类型'
+        = f.select :mtype, options_from_collection_for_select(Member::TYPES, :first, :last, @member.mtype), { include_blank: true },class: 'form-control'
   .actions
     = f.submit '保存', class: 'btn btn-primary'

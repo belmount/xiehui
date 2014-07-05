@@ -1,29 +1,29 @@
 %h1 会员单位
 
 - @members.each do |member|
-  .row
-    %h4 
-      =member.name
-      %small=member.type
-    %p
-      %small=member.address
-      =icon('phone')
-      = member.tel
-    %p
-      %strong 
-        法人
-        = member.legal_person
-      %small= member.legal_tel
-    %p 
-      %strong
-        联系人
-        = member.contract
-      %small= member.contract_tel
-    %p
-      = link_to 'Show', member
-      = link_to 'Edit', edit_member_path(member)
-      = link_to 'Destroy', member, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  .panel.panel-body
+    .row
+      .col-sm-8
+        %h4.border-left 
+          =image_tag member.logo.url(:thumb)
+          =member.name
+          %small=member.type_name
+    
+        %p
+          %small=member.address
+          =icon('phone')
+          = member.tel
+        %p
+          法人:
+          %strong= member.legal_person
+          =icon('phone',member.legal_tel)
+          联系人:
+          %strong= member.contract
+          =icon('phone',member.contract_tel)
+      .col-sm-4
+        %p= link_to icon('edit'), edit_member_path(member), class: 'btn btn-default'
+        %p= link_to icon('trash-o'), member, :method => :delete, :data => { :confirm => '确认删除?' }, class: 'btn btn-default'
 
 %br
 
-= link_to 'New Member', new_member_path
+= link_to '+会员', new_member_path, class: 'btn btn-success'

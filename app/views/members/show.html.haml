@@ -26,10 +26,12 @@
   = @member.url
 %p
   %b Logo url:
-  = @member.logo_url
+  - if @member.logo.nil? then
+    = holder_tag '100x100', 'no img', 'sky'
+  =image_tag @member.logo.url(:medium)
 %p
   %b Type:
-  = @member.type
+  = @member.type_name
 
 = link_to 'Edit', edit_member_path(@member)
 \|
