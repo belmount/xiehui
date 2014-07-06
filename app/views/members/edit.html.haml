@@ -1,7 +1,5 @@
-%h1 Editing member
-
+%ol.breadcrumb
+  %li= link_to '控制面板', control_path
+  %li= link_to '会员单位', members_path
+  %li.active 更新会员信息
 = render 'form'
-
-= link_to 'Show', @member
-\|
-= link_to 'Back', members_path

@@ -19,7 +19,6 @@ body {background: url('texture_bg.png') repeat scroll 0 0 #444444;
   @extend .form-group;
   padding: 2px;
   input {border: 1px solid red;}
-  display: table;
 }
 
 .border-left{

@@ -1,0 +1,19 @@
+%h4.border-left 
+  -unless member.logo.url =~ /missing.png/ 
+    =image_tag member.logo.url(:thumb), class:'img-rounded'
+  -else
+    =holder_tag '50x50', 'no logo', 'sky'
+  =link_to_unless(member.url.nil?, member.name,member.url)
+  %small=member.type_name
+
+%p
+  %small=member.address
+  =icon('phone')
+  = member.tel
+%p
+  法人:
+  %strong= member.legal_person
+  =icon('phone',member.legal_tel)
+  联系人:
+  %strong= member.contract
+  =icon('phone',member.contract_tel)

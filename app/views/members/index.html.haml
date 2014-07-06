@@ -1,28 +1,17 @@
-%h1 会员单位
+%ol.breadcrumb
+  %li= link_to '控制面板', control_path
+  %li.active 会员单位
 
 - @members.each do |member|
   .panel.panel-body
     .row
       .col-sm-8
-        %h4.border-left 
-          =image_tag member.logo.url(:thumb)
-          =member.name
-          %small=member.type_name
-    
-        %p
-          %small=member.address
-          =icon('phone')
-          = member.tel
-        %p
-          法人:
-          %strong= member.legal_person
-          =icon('phone',member.legal_tel)
-          联系人:
-          %strong= member.contract
-          =icon('phone',member.contract_tel)
+        =render partial: 'member', locals:{member: member}
       .col-sm-4
-        %p= link_to icon('edit'), edit_member_path(member), class: 'btn btn-default'
-        %p= link_to icon('trash-o'), member, :method => :delete, :data => { :confirm => '确认删除?' }, class: 'btn btn-default'
+        .btn-group
+          = link_to icon('eye'), member, class: 'btn btn-info'
+          = link_to icon('edit'), edit_member_path(member), class: 'btn btn-default'
+          = link_to icon('trash-o'), member, :method => :delete, :data => { :confirm => '确认删除?' }, class: 'btn btn-danger'
 
 %br
 

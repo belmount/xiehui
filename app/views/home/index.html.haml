@@ -54,8 +54,8 @@
     .panel.panel-body
       -(1..4).each do |i|
         .col-xs-6.col-sm-3
-          %a.thumbnail(href='#')
-            =holder_tag '180x100', i, 'sky'
+          %a(href='#')
+            =holder_tag '180x100', i, 'sky', class:'img-rounded'
 -#$.backstretch("#{image_path('skyline.svg')}");
 
 :javascript

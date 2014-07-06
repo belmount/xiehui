@@ -1,5 +1,5 @@
-%h1 New member
-
+%ol.breadcrumb
+  %li= link_to '控制面板', control_path
+  %li= link_to '会员单位', members_path
+  %li.active 新增会员
 = render 'form'
-
-= link_to 'Back', members_path
