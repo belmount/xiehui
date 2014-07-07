@@ -2,12 +2,20 @@
 %table.table.table-stripped
   %tr
     %th email
+    %th 类型
     %th
     %th
 
   - @admin_users.each do |admin_user|
     %tr
       %td= admin_user.email
+      %td
+        -if admin_user.role!='member'
+          = admin_user.role_name
+        -else 
+          = admin_user.member_name
+          会员用户
+          = link_to glyphicon('link'), admin_user_path(admin_user)
       %td= link_to glyphicon('edit'), edit_admin_user_path(admin_user)
       %td= link_to glyphicon('remove'), [:admin, admin_user], :method => :delete, :data => { :confirm => 'Are you sure?' }
 

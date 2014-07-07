@@ -1,0 +1,55 @@
+.row
+  .col-sm-6.center-block
+    %ol.breadcrumb
+      %li=link_to '用户管理', admin_users_path
+      %li.active=@admin_user.email
+
+.panel
+  .panel-body
+    %h4
+      =@admin_user.email
+      %small=@admin_user.role_name
+    %p
+      -if @admin_user.member 
+        ="关联用户为#{@admin_user.member.name}"
+      -else
+        该用户尚未与会员关联
+#search.panel
+  .panel-heading
+    %h4 会员查找
+  .panel-body
+    = form_tag(sel_members_path, method: :get, remote: true, id: 'sform') do 
+      .form-group
+        =label_tag :name,'名称', class: 'sr-only'
+        =text_field_tag :name, params[:name], :class=> 'form-control', placeholder: '名称'
+      =submit_tag '查找', class: 'btn btn-success'
+
+#sresult
+.panel.panel-body
+  .row
+    .col-sm-6
+      #selname
+    .col-sm-2
+      =form_tag '#', method: :post,id: :assoc_form do
+        = hidden_field_tag :uid, @admin_user.id
+        = submit_tag '确认关联', class: 'btn btn-success' 
+:javascript
+  $(document).ready(function(){
+    $('#sform').on('ajax:success', function(e, data, status, xhr){
+      $('#sresult').html(xhr.responseText);
+
+      // bind click method of connection
+    }).on('ajax:error', function(e, data, status, xhr){
+      $('#sresult').html('<p>程序错误！</p>');
+    });
+
+    $('#sresult').on('click', '[data-mid]', function(){
+        var mid = $(this).data('mid');
+        var mname = $(this).data('mname');
+        $('#selname').text(mname);
+        $('#assoc_form').attr('action', '/members/'+mid+'/assoc_user');
+        return false;
+      });
+  });
+
+

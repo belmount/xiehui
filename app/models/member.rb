@@ -14,6 +14,8 @@ class Member < ActiveRecord::Base
   validates :contract_tel, {presence: true, format: {with: /[0-9]{8,13}/}}
   validates :url, {format: {with: URI::regexp(%w(http https))}, allow_blank: true}
 
+  belongs_to :user
+  has_many :fees
   def type_name
     "#{TYPES[self.mtype.to_sym]}单位"
   end

@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Year:
+  = @fee.year
+%p
+  %b Pay at:
+  = @fee.pay_at
+%p
+  %b Member:
+  = @fee.member
+
+= link_to 'Edit', edit_fee_path(@fee)
+\|
+= link_to 'Back', fees_path

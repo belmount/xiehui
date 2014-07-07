@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  resources :members
+  resources :members do 
+    collection do 
+      get 'sel'
+    end
+    member do 
+      post 'assoc_user'
+    end
+    resources :fees, except: [:show]
+  end
 
   resources :categories
 
@@ -17,7 +25,7 @@ Rails.application.routes.draw do
 
   get 'p/:first_cat/(:second_cat)/(:pid)', to:'home#category', as: 'cat'
   namespace :admin do 
-    resources :users
+    resources :users 
   end
 
   root 'home#index'

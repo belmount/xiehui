@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  year: 
+  pay_at: 2014-07-07
+  member: 
+
+two:
+  year: 
+  pay_at: 2014-07-07
+  member: 

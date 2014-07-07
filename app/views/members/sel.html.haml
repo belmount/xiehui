@@ -1,0 +1,11 @@
+%table.table
+  %tr
+    %th 名称
+    %th 组织机构代码证
+    %th
+  -@members.each do |member|
+    %tr
+      %td= member.name
+      %td
+      %td=link_to icon('link', '关联'), '#', 'data-mid'=> member.id, 'data-mname'=>member.name
+

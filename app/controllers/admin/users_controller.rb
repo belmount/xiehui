@@ -38,7 +38,7 @@ class Admin::UsersController < ApplicationController
   def update
     respond_to do |format|
       if @admin_user.update(admin_user_params)
-        format.html { redirect_to  admin_users_path, notice: '密码更新完成.' }
+        format.html { redirect_to  admin_users_path, notice: '用户更新完成.' }
         format.json { render :show, status: :ok, location: @admin_user }
       else
         format.html { render :edit }
@@ -47,12 +47,15 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+  def show
+  end
+
   # DELETE /admin/users/1
   # DELETE /admin/users/1.json
   def destroy
     @admin_user.destroy
     respond_to do |format|
-      format.html { redirect_to admin_users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to admin_users_url, notice: '用户已删除.' }
       format.json { head :no_content }
     end
   end
@@ -66,5 +69,13 @@ class Admin::UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_user_params
       params.require(:user).permit(:email, :password, :role)
+    end
+
+    def set_member
+      if @admin_user.role=='member' 
+        member = Member.find(params[:user][:member])
+        member.user = @admin_user
+        member.save!
+      end
     end
 end

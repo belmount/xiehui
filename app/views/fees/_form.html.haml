@@ -1,0 +1,17 @@
+= form_for [@member, @fee], html:{class:'form'} do |f|
+  - if @fee.errors.any?
+    #error_explanation
+      %h2= "请修正以下错误后重新提交"
+
+  .form-group
+    = f.label :year, '年度'
+    .row
+      .col-lg-3
+        = f.text_field :year, class:'form-control'
+        %p=error_text @fee.errors, :year
+  .form-group
+    = f.label :pay_at, '缴费时间'
+    %br
+    = f.date_select :pay_at, {},html_options = { size: 1 }
+  .form-group
+    = f.submit '保存', class:'btn btn-success'

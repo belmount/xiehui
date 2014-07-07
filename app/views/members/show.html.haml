@@ -7,4 +7,5 @@
   %hr
   = link_to icon('edit'), edit_member_path(@member), class: 'btn btn-default'
   = link_to icon('external-link', '兴房网'), "http://jjjg.027xf.com/agency/#{@member.name}",class: 'btn btn-info', target: '_blank'
+  = link_to icon('money','缴费'), member_fees_path(@member),class: 'btn btn-info'
 

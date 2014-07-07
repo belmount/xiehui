@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  before_action :set_member, only: [:show, :edit, :update, :destroy]
+  before_action :set_member, only: [:show, :edit, :update, :destroy, :assoc_user]
   layout 'categories'
   # GET /members
   # GET /members.json
@@ -28,7 +28,7 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
-        format.html { redirect_to @member, notice: 'Member was successfully created.' }
+        format.html { redirect_to @member, notice: '会员已创建.' }
         format.json { render :show, status: :created, location: @member }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class MembersController < ApplicationController
   def update
     respond_to do |format|
       if @member.update(member_params)
-        format.html { redirect_to @member, notice: 'Member was successfully updated.' }
+        format.html { redirect_to @member, notice: '会员已更新。' }
         format.json { render :show, status: :ok, location: @member }
       else
         format.html { render :edit }
@@ -56,8 +56,23 @@ class MembersController < ApplicationController
   def destroy
     @member.destroy
     respond_to do |format|
-      format.html { redirect_to members_url, notice: 'Member was successfully destroyed.' }
+      format.html { redirect_to members_url, notice: '会员已删除。' }
       format.json { head :no_content }
+    end
+  end
+
+  def sel
+    @members = Member.where('name like ?', "%#{params[:name]}%")
+    render layout: false
+  end
+
+  def assoc_user
+    uid = params[:uid].to_i
+    if @member.update_attribute(:user_id , uid)
+      redirect_to admin_user_url(@member.user), notice: '用户关联成功'
+    else
+      logger.info @member.errors[:user]
+      redirect_to admin_user_url(@member.user), alert: '用户关联失败，请重新关联'
     end
   end
 

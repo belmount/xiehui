@@ -17,3 +17,7 @@
   联系人:
   %strong= member.contract
   =icon('phone',member.contract_tel)
+%p
+  %strong 缴费年度
+  -member.fees.limit(5).each do |fee|
+    %span.label.label-info= fee.year
