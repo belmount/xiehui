@@ -1,10 +1,12 @@
 class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy, :assoc_user]
+  before_action :authenticate_user! 
+  authorize_resource
   layout 'categories'
   # GET /members
   # GET /members.json
   def index
-    @members = Member.all
+    @members = Member.name_with(params[:name]).page params[:page]
   end
 
   # GET /members/1

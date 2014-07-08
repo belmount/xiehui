@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :students, except: [:edit]
+
+  resources :messages
+
   resources :members do 
     collection do 
       get 'sel'

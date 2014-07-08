@@ -21,6 +21,10 @@ body {background: url('texture_bg.png') repeat scroll 0 0 #444444;
   input {border: 1px solid red;}
 }
 
+.help-inline{
+  color: $brand-danger;
+}
+
 .border-left{
     border-left: 1px dotted $brand-primary;
   }

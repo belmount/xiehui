@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @student.name
+%p
+  %b Tel:
+  = @student.tel
+%p
+  %b Gender:
+  = @student.gender
+%p
+  %b Education:
+  = @student.education
+%p
+  %b Company name:
+  = @student.company_name
+%p
+  %b Company code:
+  = @student.company_code
+%p
+  %b Id code:
+  = @student.id_code
+%p
+  %b District:
+  = @student.district
+%p
+  %b School:
+  = @student.school
+%p
+  %b School cert:
+  = @student.school_cert
+
+= link_to 'Edit', edit_student_path(@student)
+\|
+= link_to 'Back', students_path

@@ -19,4 +19,6 @@ class Member < ActiveRecord::Base
   def type_name
     "#{TYPES[self.mtype.to_sym]}单位"
   end
+
+  scope :name_with, ->(name){where('name like ?', "%#{name}%") if name.present?}
 end

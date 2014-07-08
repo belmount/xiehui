@@ -1,0 +1,29 @@
+%ol.breadcrumb
+  %li= link_to '控制面板', control_path
+  %li.active="消息"
+
+-content_for :right do 
+  .panel.panel-body
+    =form_tag(messages_url,  method: :get) do 
+      .form-group
+        =label_tag :title,'标题', class: 'sr-only'
+        =text_field_tag :title, params[:title], :class=> 'form-control', placeholder: '标题'
+      =submit_tag '查找', class: 'btn btn-primary'
+
+
+- @messages.each do |message|
+  .panel
+    .panel-heading
+      %h4=link_to message.title, message
+    .panel-body
+      %p
+        = content_preview(message.content, 100)
+        ="..."
+      -if can? :manage, Message
+        .btn-group
+          = link_to icon('edit'), edit_message_path(message)
+          = link_to icon('trash-o'), message, :method => :delete, :data => { :confirm => '确认删除?' }
+=paginate @messages
+
+-if can? :manage, Message
+  = link_to '+消息', new_message_path, class: 'btn btn-success'

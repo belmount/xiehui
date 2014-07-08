@@ -7,10 +7,12 @@ class Ability
     if user.role == 'editor'
         can :manage, Category
         can :manage, Page
+        can :manage, Message
     elsif user.role == 'member_man'
         can :manage, Member
     elsif user.role == 'member'
         can :update, Member, :user_id == user.id
+        can :read, Message
     end 
 
     # Define abilities for the passed in user here. For example:

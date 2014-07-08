@@ -1,0 +1,37 @@
+%h1 Listing students
+
+%table
+  %tr
+    %th Name
+    %th Tel
+    %th Gender
+    %th Education
+    %th Company name
+    %th Company code
+    %th Id code
+    %th District
+    %th School
+    %th School cert
+    %th
+    %th
+    %th
+
+  - @students.each do |student|
+    %tr
+      %td= student.name
+      %td= student.tel
+      %td= student.gender
+      %td= student.education
+      %td= student.company_name
+      %td= student.company_code
+      %td= student.id_code
+      %td= student.district
+      %td= student.school
+      %td= student.school_cert
+      %td= link_to 'Show', student
+      %td= link_to 'Edit', edit_student_path(student)
+      %td= link_to 'Destroy', student, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Student', new_student_path

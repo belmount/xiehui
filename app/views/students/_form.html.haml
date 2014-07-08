@@ -1,0 +1,28 @@
+= simple_form_for @student do |f|
+  .field.form-group
+    .col-md-6.col-xs-12
+      = f.input :name, label: '姓名', input_html: {class: 'form-control'}
+    .col-md-6.col-xs-12
+      = f.input :tel, label: '电话', input_html: {class: 'form-control'}, hint:'8或11位数字'
+  .field.form-group
+    .col-md-3.col-xs-6
+      = f.input :gender, collection: {M: '男', F: '女'}, value_method: :first, label_method: :last,label: '性别', input_html: {class: 'form-control'}
+    .col-md-3.col-xs-6
+      = f.input :education, collection: Student::EDUCATION, label: '学历', input_html: {class: 'form-control'}
+    .col-md-6.col-xs-12= f.input :id_code,label: '身份证号码', input_html: {class: 'form-control'}
+  .field.form-group
+    .col-xs-12
+      = f.input :company_name, label: '公司名称', input_html: {class: 'form-control'}
+  .field.form-group
+    .col-md-8.col-xs-12
+      = f.input :company_code, label: '组织机构代码证', input_html: {class: 'form-control'}
+    .col-md-4.col-xs-12
+      = f.input :district, label: '区属',  collection: Student::DISTRICT, value_method: :first, label_method: :last, input_html: {class: 'form-control'}
+  .field.form-group
+    .col-md-12.col-xs-12
+      = f.input :school, label: '毕业院校', input_html: {class: 'form-control'}
+  .field.form-group
+    .col-md-12.col-xs-12
+      = f.input :school_cert, label: '学历证书号', input_html: {class: 'form-control'}
+  .form-group
+    .col-xs-12= f.submit '保存', class: 'btn btn-primary'

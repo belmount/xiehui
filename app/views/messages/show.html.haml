@@ -1,0 +1,17 @@
+%ol.breadcrumb
+  %li= link_to '控制面板', control_path
+  %li= link_to '消息', messages_path
+  %li.active=@message.title
+
+.panel
+  .panel-heading.panel-default
+    %h3= @message.title
+    %small
+      = time_ago_in_words(@message.updated_at)
+      前
+  .panel-body
+    %p= @message.content.html_safe
+
+-if can? :manage, @message
+  = link_to icon('edit','编辑'), edit_message_path(@message), class: 'btn btn-success'
+

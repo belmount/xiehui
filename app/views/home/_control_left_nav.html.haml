@@ -8,4 +8,8 @@
       = link_to '页面管理', pages_path, class:'list-group-item'
     -if can? :manage, Member
       = link_to '会员管理', members_path, class: 'list-group-item'
+    -if can? :manage, Message
+      = link_to '消息管理', messages_path, class: 'list-group-item'
+    -elsif can? :read, Message
+      = link_to '消息', messages_path, class: 'list-group-item'
     = link_to '重设密码', edit_user_registration_path, class:'list-group-item'

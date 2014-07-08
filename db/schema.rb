@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707080151) do
+ActiveRecord::Schema.define(version: 20140708035859) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -70,6 +70,13 @@ ActiveRecord::Schema.define(version: 20140707080151) do
 
   add_index "members", ["user_id"], name: "index_members_on_user_id"
 
+  create_table "messages", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pages", force: true do |t|
     t.string   "title"
     t.text     "content"
@@ -81,6 +88,21 @@ ActiveRecord::Schema.define(version: 20140707080151) do
   end
 
   add_index "pages", ["category_id"], name: "index_pages_on_category_id"
+
+  create_table "students", force: true do |t|
+    t.string   "name",         limit: 30
+    t.string   "tel",          limit: 30
+    t.string   "gender",       limit: 1
+    t.string   "education"
+    t.string   "company_name", limit: 100
+    t.string   "company_code", limit: 20
+    t.string   "id_code",      limit: 30
+    t.string   "district",     limit: 10
+    t.string   "school",       limit: 100
+    t.string   "school_cert",  limit: 100
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

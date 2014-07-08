@@ -2,6 +2,14 @@
   %li= link_to '控制面板', control_path
   %li.active 会员单位
 
+-content_for :right do 
+  .panel.panel-body
+    =form_tag(members_url,  method: :get) do 
+      .form-group
+        =label_tag :name,'名称', class: 'sr-only'
+        =text_field_tag :name, params[:name], :class=> 'form-control', placeholder: '名称'
+      =submit_tag '查找', class: 'btn btn-primary'
+
 - @members.each do |member|
   .panel.panel-body
     .row
@@ -14,5 +22,6 @@
           = link_to icon('trash-o'), member, :method => :delete, :data => { :confirm => '确认删除?' }, class: 'btn btn-danger'
 
 %br
+=paginate @members
 
 = link_to '+会员', new_member_path, class: 'btn btn-success'
