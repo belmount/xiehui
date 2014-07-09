@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nth: 1
+  open_at: 2014-07-09
+  end_at: 2014-07-09
+
+two:
+  nth: 1
+  open_at: 2014-07-09
+  end_at: 2014-07-09

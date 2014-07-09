@@ -1,0 +1,44 @@
+%ol.breadcrumb
+  %li= link_to '控制面板', control_path
+  %li= link_to '学员管理', students_path
+  %li.active 查询
+
+.panel.panel-body
+  =form_tag(search_students_url,  method: :get) do 
+    .row
+      .col-sm-6.col-xs-12.form-group
+        =label_tag :company,'公司名称', class: 'sr-only'
+        =text_field_tag :company, params[:company], :class=> 'form-control', placeholder: '公司名称'
+      .col-sm-6.col-xs-12.form-group
+        =label_tag :id_num,'身份证号', class: 'sr-only'
+        =text_field_tag :id_num, params[:id_num], :class=> 'form-control',placeholder:'身份证号'
+    .row
+      .col-sm-6.col-xs-6.form-group
+        =label_tag :nth,'期数', class: 'sr-only'
+        =text_field_tag :nth, params[:nth], :class=> 'form-control',placeholder:'期数'
+      .col-sm-6.col-xs-6.form-group
+        =label_tag :name,'姓名', class: 'sr-only'
+        =text_field_tag :name, params[:name], :class=> 'form-control',placeholder:'姓名'
+    
+    =submit_tag '查找', class: 'btn btn-primary'
+
+#result
+  -@students.each do |student|
+    .panel.panel-body
+      .col-sm-8.col-xs-12
+        %p
+          =check_box_tag 'sid[]', student.id
+          %strong= icon('user', student.name)
+          %span=icon('phone', student.tel) 
+          %span= icon('credit-card', student.id_code)
+          %span= student.gender_name
+          %strong=student.score
+        %p
+          = student.school
+          = student.education
+          = icon('certificate',student.school_cert)
+        %p
+          = student.district_name
+          = student.company_name
+          = icon('certificate',student.company_code)
+

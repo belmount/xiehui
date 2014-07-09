@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140708035859) do
+ActiveRecord::Schema.define(version: 20140709092328) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140708035859) do
     t.datetime "updated_at"
     t.integer  "display_order"
     t.integer  "position",      default: 1
+    t.string   "url"
   end
 
   add_index "categories", ["parent_id"], name: "index_categories_on_parent_id"
@@ -40,6 +41,14 @@ ActiveRecord::Schema.define(version: 20140708035859) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+
+  create_table "courses", force: true do |t|
+    t.integer  "nth"
+    t.date     "open_at"
+    t.date     "end_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "fees", force: true do |t|
     t.integer  "year"
@@ -102,7 +111,11 @@ ActiveRecord::Schema.define(version: 20140708035859) do
     t.string   "school_cert",  limit: 100
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "course_id"
+    t.decimal  "score",                    precision: 5, scale: 2
   end
+
+  add_index "students", ["course_id"], name: "index_students_on_course_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

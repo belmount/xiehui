@@ -1,0 +1,6 @@
+%ol.breadcrumb
+  %li= link_to '控制面板', control_path
+  %li= link_to "培训班次管理", courses_path
+  %li.active="培训班次#{@course.nth}编辑"
+
+= render 'form'

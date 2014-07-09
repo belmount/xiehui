@@ -1,37 +1,63 @@
-%h1 Listing students
+%ol.breadcrumb
+  %li= link_to '控制面板', control_path
+  %li.active="学员管理"
 
-%table
-  %tr
-    %th Name
-    %th Tel
-    %th Gender
-    %th Education
-    %th Company name
-    %th Company code
-    %th Id code
-    %th District
-    %th School
-    %th School cert
-    %th
-    %th
-    %th
-
+.btn-group
+  =link_to '查询', search_students_path, class:'btn btn-info'
+  =link_to '成绩录入', score_students_path, class:'btn btn-default'
+%ul.nav.nav-tabs(role='tablist')
+  %li=link_to "未加入课程#{ Student.no_course.count}" ,students_path(type:'noc')
+  %li=link_to "已加入课程#{Student.with_course.count}",students_path(type:'c')
+  %li=link_to "全部#{Student.count}",students_path
+  %li 
+    %button#sel_all.btn.btn-info 全选
+#msg
+=form_tag join_course_students_path, remote: true, id: 'join_form',:'data-type' => 'html' do 
+  .panel.panel-body
+    .row
+      .col-sm-6.col-xs-6
+        = select_tag :course,options_from_collection_for_select(Course.recent, "id", "nth"), class: 'form-control'
+      .col-sm-6.col-xs-6
+        -if params[:type]=='c'
+          = hidden_field_tag :todo, 'cancel'
+          = submit_tag '取消关联', class: 'btn btn-primary'
+        -else
+          = submit_tag '关联', class: 'btn btn-primary'
   - @students.each do |student|
-    %tr
-      %td= student.name
-      %td= student.tel
-      %td= student.gender
-      %td= student.education
-      %td= student.company_name
-      %td= student.company_code
-      %td= student.id_code
-      %td= student.district
-      %td= student.school
-      %td= student.school_cert
-      %td= link_to 'Show', student
-      %td= link_to 'Edit', edit_student_path(student)
-      %td= link_to 'Destroy', student, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    .panel.panel-body
+      .col-sm-8.col-xs-12
+        %p
+          =check_box_tag 'sid[]', student.id
+          %strong= icon('user', student.name)
+          %span=icon('phone', student.tel) 
+          %span= icon('credit-card', student.id_code)
+          %span= student.gender_name
+        %p
+          = student.school
+          = student.education
+          = icon('certificate',student.school_cert)
+          -if student.course 
+            %span.label.label-info= "#{student.course.nth}期"
+        %p
+          = student.district_name
+          = student.company_name
+          = icon('certificate',student.company_code)
+      .col-sm-4.col-xs-12
+        %p
+          = link_to icon('edit'), edit_student_path(student)
+          = link_to icon('trash-o'), student, :method => :delete, :data => { :confirm => '确认删除?' }
+=paginate @students
 
-%br
+:javascript
+  $(document).ready(function(){
+    $('#join_form').on('ajax:success', function(e, data, status, xhr){
+      $('#msg').addClass('alert alert-info').html(xhr.responseText);
+    }).on('ajax:error', function(e, data, status, xhr){
+      $('#msg').addClass('alert alert-danger').html(xhr.responseText);
+    });
 
-= link_to 'New Student', new_student_path
+    $('#sel_all').click(function(){
+      $('#join_form input[type="checkbox"]').prop('checked', true);
+    });
+  });
+  

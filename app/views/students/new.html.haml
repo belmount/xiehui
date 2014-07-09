@@ -1,5 +1,7 @@
-%h1 New student
+.panel
+  .panel-heading
+    %h2 学员报名
+  .panel-body
+    = render 'form'
 
-= render 'form'
-
-= link_to 'Back', students_path
+=link_to icon('chevron-left'), :back

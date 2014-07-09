@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Nth:
+  = @course.nth
+%p
+  %b Open at:
+  = @course.open_at
+%p
+  %b End at:
+  = @course.end_at
+
+= link_to 'Edit', edit_course_path(@course)
+\|
+= link_to 'Back', courses_path

@@ -7,7 +7,7 @@ class Category < ActiveRecord::Base
   validates :ename, presence: true
 
   validate :parent_not_be_self
-  validate :display_order, presence: true,  numericality: {only_integer: true}
+  validates :display_order, presence: true,  numericality: {only_integer: true}
   def parent_not_be_self
     if parent && parent.id == id then
       errors.add(:parent_id, "上级类型不能为自己")
@@ -32,5 +32,9 @@ class Category < ActiveRecord::Base
 
   def position
     self[:position] ? self[:position] : 2 
+  end
+
+  def has_url?
+    url.present?
   end
 end

@@ -14,10 +14,21 @@ class HomeController < ApplicationController
 
   def category
     @cat = Category.where(ename: params[:first_cat]).first
+  
     if params[:second_cat].present?
       @sub =  @cat.sub_categories.where(ename:params[:second_cat]).first
     else
       @sub = @cat.sub_categories.first
+    end
+
+    if @cat.has_url? 
+      @url = @cat.url
+      return redirect_to @url
+    elsif @sub.has_url?
+      @url = @sub.url
+      session[:cat]=@cat.id
+      session[:sub]=@sub.id
+      return redirect_to @url
     end
     if (@sub && params[:pid].present?)
       @pid = params[:pid]

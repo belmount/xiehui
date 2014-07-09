@@ -1,0 +1,9 @@
+= simple_form_for @course do |f|
+  .form-group
+    = f.input :nth, label: '班次', input_html: {class: 'form-control'}
+  .form-group
+    = f.input :open_at, label: '开班日期', input_html: {class: 'form-control date-sel'}
+  .form-group
+    = f.input :end_at, label: '结束日期', input_html: {class: 'form-control date-sel'}
+  .form-group
+    = f.submit '保存', class: 'btn btn-primary'

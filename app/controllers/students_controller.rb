@@ -1,10 +1,27 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_student, only: [:show, :edit, :update, :destroy,:register_finished]
+  before_action :authenticate_user!, except:[:new, :create]
+  authorize_resource
+  layout "categories", except: [:new, :register_finished]
   # GET /students
   # GET /students.json
   def index
-    @students = Student.all
+    if params[:type].present? 
+      if params[:type]=='noc' 
+        @students = Student.no_score.no_course.page params[:page]
+      else
+        @students = Student.no_score.with_course.page params[:page]
+      end
+    else
+      @students = Student.no_score.page params[:page]
+    end
+  end
+
+  def search
+    @students = Student.with_id(params[:id_num]).with_nth(params[:nth]).with_name(params[:name]).with_company(params[:company])
+  end
+
+  def score
   end
 
   # GET /students/1
@@ -28,12 +45,30 @@ class StudentsController < ApplicationController
 
     respond_to do |format|
       if @student.save
-        format.html { redirect_to @student, notice: 'Student was successfully created.' }
+        format.html { redirect_to register_finished_url(@student), notice: '注册成功.' }
         format.json { render :show, status: :created, location: @student }
       else
         format.html { render :new }
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def register_finished
+  end
+
+  def join_course
+    if params[:todo] == 'cancel'
+      logger.info 'cancel reached' 
+      if Student.where(id: params[:sid]).update_all(course_id: nil)
+        render text: '关联取消成功,请点击以上按钮刷新页面'
+      else
+        render text: '关联取消失败'
+      end
+    elsif Student.where(id: params[:sid]).update_all(course_id: params[:course]) 
+      render text:'已完成关联,请点击以上按钮刷新页面'
+    else
+      render text:'关联失败'
     end
   end
 
@@ -56,7 +91,7 @@ class StudentsController < ApplicationController
   def destroy
     @student.destroy
     respond_to do |format|
-      format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }
+      format.html { redirect_to students_url, notice: '该报名信息已删除.' }
       format.json { head :no_content }
     end
   end

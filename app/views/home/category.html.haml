@@ -1,4 +1,4 @@
-=render 'page_left'
+=render partial:'page_left', locals: {cat: @cat}
 -if @pages.size == 1 then 
   =render partial:'page', locals: {page: @pages.first}
 -else

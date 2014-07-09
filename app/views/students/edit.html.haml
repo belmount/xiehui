@@ -1,7 +1,6 @@
-%h1 Editing student
-
+%ol.breadcrumb
+  %li= link_to '控制面板', control_path
+  %li= link_to "学员管理", students_path
+  %li.active= @student.name
+  
 = render 'form'
-
-= link_to 'Show', @student
-\|
-= link_to 'Back', students_path

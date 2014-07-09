@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  resources :students, except: [:edit]
+  resources :courses
+
+  resources :students, except: [:show] do
+    collection do 
+      post 'join_course'
+      get 'search'
+      get 'score'
+      post 'put_score'
+    end
+  end
 
   resources :messages
 
@@ -26,6 +35,9 @@ Rails.application.routes.draw do
   
   get 'home/index'
   get 'home/control', as: 'control'
+
+  get 'register', to: 'students#new'
+  get 'reg_finished/:id', to: 'students#register_finished', as: 'register_finished'
 
   get 'p/:first_cat/(:second_cat)/(:pid)', to:'home#category', as: 'cat'
   namespace :admin do 
