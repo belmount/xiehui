@@ -13,7 +13,13 @@
     -if can? :manage, Course
       = link_to '培训班次管理', courses_path, class: 'list-group-item'
     -if can? :manage, Student
-      = link_to '学员管理', students_path, class: 'list-group-item'
+      .dropdown
+        %a#studentbtn.dropdown-toggle.list-group-item( data-toggle="dropdown")
+          学员管理
+          =icon('chevron-right')
+        %ul.dropdown-menu.dropdown-menu-right{role: 'menu', 'aria-labelledby'=>"studentbtn"}
+          %li{role: "presentation"}= link_to '报名', students_path
+          %li{role: "presentation"}= link_to '查询', search_students_path
     -elsif can? :read, Message
       = link_to '消息', messages_path, class: 'list-group-item'
     = link_to '重设密码', edit_user_registration_path, class:'list-group-item'

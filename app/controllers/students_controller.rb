@@ -19,6 +19,10 @@ class StudentsController < ApplicationController
 
   def search
     @students = Student.with_id(params[:id_num]).with_nth(params[:nth]).with_name(params[:name]).with_company(params[:company])
+    respond_to do |format|
+      format.html 
+      format.csv {send_data  @students.to_csv, filename: "xueyuan-#{Time.now.strftime('%y%m%d%H%M%S')}.csv", type: "text/csv" }
+    end
   end
 
   def score
@@ -104,6 +108,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:name, :tel, :gender, :education, :company_name, :company_code, :id_code, :district, :school, :school_cert)
+      params.require(:student).permit(:name, :tel, :gender, :education, :company_name, :company_code, :id_code, :district, :school, :school_cert, :score)
     end
 end

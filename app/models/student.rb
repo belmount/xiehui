@@ -17,12 +17,12 @@ class Student < ActiveRecord::Base
   validates :education, presence: true, inclusion: {in: EDUCATION}
   validates :score, numericality:{less_than_or_equal_to: 100, greater_than_or_equal_to: 0 }
 
-  def district_name
-    DISTRICT[district]
+  def district
+    DISTRICT[self[:district]]
   end
 
-  def gender_name
-    gender==='M' ? '男': '女'
+  def gender
+    self[:gender]==='M' ? '男': '女'
   end
 
   belongs_to :course
@@ -35,4 +35,17 @@ class Student < ActiveRecord::Base
   scope :with_name,->(name){where('name like ?', "%#{name}%") if name.present?}
   scope :with_nth, ->(nth){Course.where(nth: nth).students if nth.present?}
   scope :with_id, ->(id_code){where('id_code like ?', "%#{id_code}%") if id_code.present?}
+
+
+  def self.to_csv(options={})
+    # Add BOM to make excel using utf8 to open csv file
+    (CSV.generate(options) do |csv|
+      csv << %w[姓名 电话 性别 身份证号 学历 学校 证书号 所在区 公司名称 成绩 ]
+      map_attr = %w[name tel gender id_code education school school_cert district company_name score]
+      all.each do |student|
+        csv << [student.name , student.tel, student.gender, student.id_code, student.education , student.school, student.school_cert,
+          student.district, student.company_name, student.score]
+      end
+    end).encode('WINDOWS-1252', :undef => :replace, :replace => '')
+  end
 end

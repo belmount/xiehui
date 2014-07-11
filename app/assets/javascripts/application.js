@@ -18,4 +18,5 @@
 //= require holder
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.js
+//= require 'rest_in_place'
 //= require_tree .

@@ -61,3 +61,6 @@ gem 'haml-rails'
 #gem 'thin'
 
 gem 'font-awesome-sass'
+# edit in place, reference: https://github.com/janv/rest_in_place/
+gem 'rest_in_place'
+

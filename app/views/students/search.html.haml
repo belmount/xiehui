@@ -22,23 +22,17 @@
     
     =submit_tag '查找', class: 'btn btn-primary'
 
+.btn-group
+  =link_to icon('file-excel-o', 'csv'), params.merge({format: "csv"})
 #result
   -@students.each do |student|
     .panel.panel-body
       .col-sm-8.col-xs-12
-        %p
-          =check_box_tag 'sid[]', student.id
-          %strong= icon('user', student.name)
-          %span=icon('phone', student.tel) 
-          %span= icon('credit-card', student.id_code)
-          %span= student.gender_name
-          %strong=student.score
-        %p
-          = student.school
-          = student.education
-          = icon('certificate',student.school_cert)
-        %p
-          = student.district_name
-          = student.company_name
-          = icon('certificate',student.company_code)
-
+        =render partial: 'student', locals:{student: student}
+:javascript
+  $(document).ready(function(){
+    $('.rest-in-place').bind('success.rest-in-place', function(event, data){
+      $(this).text(data.score);
+    });
+  });
+ 
