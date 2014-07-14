@@ -34,3 +34,16 @@ rails g kaminari:views with json convertion
 git command for ignore
 git update-index --assume-unchanged path/to/file.txt
 git update-index --no-assume-unchanged path/to/file.txt
+
+
+== Postgresql config
+to install pg gem on ubuntu
+first need to 
+sudo apt-get install libpq
+to show database
+\l
+to show tables
+\d
+to connect database
+\c databasename
+

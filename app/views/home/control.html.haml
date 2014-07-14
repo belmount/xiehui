@@ -1,1 +1,29 @@
 =render 'control_left_nav'
+
+.panel
+  .panel-heading
+    %h3 控制面板
+  .panel-body
+    .row
+      .col-sm-6.col-xs-12
+        %a{href: admin_users_url}
+          .thumbnail
+            .text-center
+              =icon('user', '', class:'fa-4x')
+              %h4
+                用户
+                %strong=User.count
+              %h4
+                管理员
+                %strong=User.where(role: 'admin').count
+      .col-sm-6.col-xs-12
+        %a{href: categories_url}
+          .thumbnail
+            .text-center
+              =icon('tags', '', class:'fa-4x')
+              %h4
+                页面类型(一级)
+                %strong=Category.first_level.count
+              %h4
+                页面类型(二级)
+                %strong=Category.second_level.count
