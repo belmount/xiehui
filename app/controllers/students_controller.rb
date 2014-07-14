@@ -21,11 +21,9 @@ class StudentsController < ApplicationController
     @students = Student.with_id(params[:id_num]).with_nth(params[:nth]).with_name(params[:name]).with_company(params[:company])
     respond_to do |format|
       format.html 
+      format.xls 
       format.csv {send_data  @students.to_csv, filename: "xueyuan-#{Time.now.strftime('%y%m%d%H%M%S')}.csv", type: "text/csv" }
     end
-  end
-
-  def score
   end
 
   # GET /students/1
@@ -81,7 +79,7 @@ class StudentsController < ApplicationController
   def update
     respond_to do |format|
       if @student.update(student_params)
-        format.html { redirect_to @student, notice: 'Student was successfully updated.' }
+        format.html { redirect_to students_url, notice: '学员信息已更新' }
         format.json { render :show, status: :ok, location: @student }
       else
         format.html { render :edit }
@@ -98,6 +96,10 @@ class StudentsController < ApplicationController
       format.html { redirect_to students_url, notice: '该报名信息已删除.' }
       format.json { head :no_content }
     end
+  end
+
+  def score
+    @students = Student.with_course.page params[:page]
   end
 
   private

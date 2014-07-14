@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">姓名</Data></Cell>
+        <Cell><Data ss:Type="String">电话</Data></Cell>
+        <Cell><Data ss:Type="String">性别</Data></Cell>
+        <Cell><Data ss:Type="String">身份证号</Data></Cell>
+        <Cell><Data ss:Type="String">学历</Data></Cell>
+        <Cell><Data ss:Type="String">学校</Data></Cell>
+        <Cell><Data ss:Type="String">证书号</Data></Cell>
+        <Cell><Data ss:Type="String">所在区</Data></Cell>
+        <Cell><Data ss:Type="String">公司名称</Data></Cell>
+        <Cell><Data ss:Type="String">成绩</Data></Cell>
+      </Row>
+    <% @students.each do |student| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= student.name  %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student.tel %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student.gender_name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student.id_code %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student.education %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student.school %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student.school_cert %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student.district_name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student.company_name %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= student.score %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

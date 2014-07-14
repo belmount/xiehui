@@ -20,6 +20,7 @@
         %ul.dropdown-menu.dropdown-menu-right{role: 'menu', 'aria-labelledby'=>"studentbtn"}
           %li{role: "presentation"}= link_to '报名', students_path
           %li{role: "presentation"}= link_to '查询', search_students_path
+          %li{role: "presentation"}= link_to '分数录入', score_students_path
     -elsif can? :read, Message
       = link_to '消息', messages_path, class: 'list-group-item'
     = link_to '重设密码', edit_user_registration_path, class:'list-group-item'

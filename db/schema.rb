@@ -86,6 +86,16 @@ ActiveRecord::Schema.define(version: 20140709092328) do
     t.datetime "updated_at"
   end
 
+  create_table "news", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "ntype"
+    t.date     "happend_at"
+    t.string   "first_img_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pages", force: true do |t|
     t.string   "title"
     t.text     "content"

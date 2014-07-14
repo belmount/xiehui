@@ -1,0 +1,20 @@
+%ol.breadcrumb
+  %li= link_to '控制面板', control_path
+  %li.active="学员/分数录入"
+
+- @students.each do |student|
+  .panel.panel-body
+    .col-sm-8.col-xs-12
+      =render partial: 'student', locals:{student: student}
+    .col-sm-4.col-xs-12
+      %h5 分数
+      %hr
+      =simple_form_for student, remote: true, html:{class: 'student-score'} do |f|
+        .row
+          .col-xs-8
+            = f.input :score, label: false, input_html: {class: 'form-control'}
+          .col-xs-4
+            .form-group
+              = f.submit '保存', class: 'btn btn-primary'
+        .alert
+

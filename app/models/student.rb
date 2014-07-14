@@ -15,13 +15,15 @@ class Student < ActiveRecord::Base
   validates_format_of :tel, with: /\A\d{8}(|\d{3})\z/, message:'8位或11位数字'
   validates :id_code, presence: true, format: {with: /\A\d{15}(|\d{2}[0-9a-zA-Z])\z/}
   validates :education, presence: true, inclusion: {in: EDUCATION}
-  validates :score, numericality:{less_than_or_equal_to: 100, greater_than_or_equal_to: 0 }
+  validates :school, presence: true
+  validates :school_cert, presence: true
+  validates :score, numericality:{less_than_or_equal_to: 100, greater_than_or_equal_to: 0 }, allow_nil: true
 
-  def district
+  def district_name
     DISTRICT[self[:district]]
   end
 
-  def gender
+  def gender_name
     self[:gender]==='M' ? '男': '女'
   end
 
@@ -43,9 +45,9 @@ class Student < ActiveRecord::Base
       csv << %w[姓名 电话 性别 身份证号 学历 学校 证书号 所在区 公司名称 成绩 ]
       map_attr = %w[name tel gender id_code education school school_cert district company_name score]
       all.each do |student|
-        csv << [student.name , student.tel, student.gender, student.id_code, student.education , student.school, student.school_cert,
-          student.district, student.company_name, student.score]
+        csv << [student.name , student.tel, student.gender_name, student.id_code, student.education , student.school, student.school_cert,
+          student.district_name, student.company_name, student.score]
       end
-    end).encode('WINDOWS-1252', :undef => :replace, :replace => '')
+    end).encode('gb2312', :undef => :replace, :replace => '')
   end
 end

@@ -40,6 +40,10 @@ gem 'devise'
 
 gem 'holder_rails'
 
+group :production do 
+  gem 'pg'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -62,5 +66,5 @@ gem 'haml-rails'
 
 gem 'font-awesome-sass'
 # edit in place, reference: https://github.com/janv/rest_in_place/
-gem 'rest_in_place'
+#gem 'rest_in_place'
 

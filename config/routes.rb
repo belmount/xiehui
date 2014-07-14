@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   resources :courses
 
-  resources :students, except: [:show] do
+  resources :students do
     collection do 
       post 'join_course'
       get 'search'
       get 'score'
-      post 'put_score'
     end
   end
 

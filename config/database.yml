@@ -21,5 +21,10 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: xiehui
+  encoding: utf-8
+  pool: 5
+  username: xiehui
+  password: password
+  host:  localhost

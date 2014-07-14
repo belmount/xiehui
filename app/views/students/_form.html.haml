@@ -1,4 +1,8 @@
 = simple_form_for @student do |f|
+
+  .error
+    -@student.errors.messages.each do |msg|
+      = debug msg 
   .field.form-group
     .col-md-6.col-xs-12
       = f.input :name, label: '姓名', input_html: {class: 'form-control'}

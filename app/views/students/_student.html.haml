@@ -2,7 +2,7 @@
   %strong= icon('user', student.name)
   %span=icon('phone', student.tel) 
   %span= icon('credit-card', student.id_code)
-  %span= student.gender
+  %span= student.gender_name
 %p
   = student.school
   = student.education
@@ -11,10 +11,9 @@
   -if student.course 
     %span.label.label-info= "#{student.course.nth}期"
     成绩：
-    %span.rest-in-place{'data-url'=>"#{student_path student}",'data-object'=>'student', 'data-attribute'=>'score', 'data-palce-holder'=>'请输入成绩'}
-      =student.score || '未录入'
+    =number_with_precision(student.score, precision: 1)    || '未录入'
     分
 %p
-  = student.district
+  = student.district_name
   = student.company_name
   = icon('certificate',student.company_code)
