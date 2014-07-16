@@ -7,7 +7,7 @@
           %li= msg
   = f.input :email, input_html: {:class=> 'form-control'}
   = f.input :password, label: :密码, input_html: {:class=> 'form-control'}
-  = f.input :role, label: :角色, collection: User::ROLES, label_method: :last, value_method: :first
+  = f.input :role, label: :角色, collection: User::ROLES, label_method: :last, value_method: :first, input_html: {class: 'form-control'}
   = f.input :member, label: :会员, as: :hidden
   .actions
-    = f.submit '保存'
+    = f.submit '保存', class: 'btn btn-default'

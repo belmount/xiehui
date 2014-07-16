@@ -5,25 +5,77 @@
     %h3 控制面板
   .panel-body
     .row
-      .col-sm-6.col-xs-12
-        %a{href: admin_users_url}
-          .thumbnail
-            .text-center
-              =icon('user', '', class:'fa-4x')
-              %h4
-                用户
-                %strong=User.count
-              %h4
-                管理员
-                %strong=User.where(role: 'admin').count
-      .col-sm-6.col-xs-12
-        %a{href: categories_url}
-          .thumbnail
-            .text-center
-              =icon('tags', '', class:'fa-4x')
-              %h4
-                页面类型(一级)
-                %strong=Category.first_level.count
-              %h4
-                页面类型(二级)
-                %strong=Category.second_level.count
+      -if can? :manage, User
+        .col-sm-6.col-xs-12
+          %a{href: admin_users_url}
+            .thumbnail
+              .text-center
+                =icon('user', '', class:'fa-4x')
+                %h4
+                  用户
+                  %strong=User.count
+                %h4
+                  管理员
+                  %strong=User.where(role: 'admin').count
+      -if can? :manage, Category
+        .col-sm-6.col-xs-12
+          %a{href: categories_url}
+            .thumbnail
+              .text-center
+                =icon('tags', '', class:'fa-4x')
+                %h4
+                  页面类型(一级)
+                  %strong=Category.first_level.count
+                %h4
+                  页面类型(二级)
+                  %strong=Category.second_level.count
+      -if can? :manage, Page
+        .col-sm-6.col-xs-12
+          %a{href: pages_url}
+            .thumbnail
+              .text-center
+                =icon('file', '', class:'fa-4x')
+                %h4
+                  页面
+                  %strong=Page.count
+      -if can? :manage, Member
+        .col-sm-6.col-xs-12
+          %a{href: members_url}
+            .thumbnail
+              .text-center
+                =icon('group', '', class:'fa-4x')
+                %h4
+                  会员
+                  %strong=Member.count
+      -if can? :manage, Message
+        .col-sm-6.col-xs-12
+          %a{href: messages_url}
+            .thumbnail
+              .text-center
+                =icon('wechat', '', class:'fa-4x')
+                %h4
+                  消息
+                  %strong=Message.count
+      -if can? :manage, Course
+        .col-sm-6.col-xs-12
+          %a{href: courses_url}
+            .thumbnail
+              .text-center
+                =icon('rocket', '', class:'fa-4x')
+                %h4
+                  培训班
+                  %strong=Course.count
+      -if can? :manage, Student
+        .col-sm-6.col-xs-12
+          %a{href: students_url}
+            .thumbnail
+              .text-center
+                =icon('book', '', class:'fa-4x')
+                %h4
+                  报名中
+                  %strong=Student.no_course.count
+                  学习中
+                  %strong=Student.no_score.count
+                  结业
+                  %strong=Student.count - Student.no_score.count
+

@@ -7,12 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 admin = User.create(email:'admin@xh.com', password: 'password', role: 'admin');
 
-news = Category.create({name: '新闻', ename: 'news', position: 3, display_order: 1})
-Category.create({name:'公告', ename: 'notify', position: 3,  display_order: 1, parent: news})
-Category.create({name:'活动', ename: 'event', position: 3, display_order: 2, parent: news})
-Category.create({name:'行业动态', ename: 'trend', position: 3, display_order: 3, parent: news})
+news = Category.create({name: '新闻', ename: 'news', position: 3, display_order: 1, main_pos: 0})
+Category.create({name:'公告', ename: 'notify',   display_order: 1, parent: news})
+Category.create({name:'活动', ename: 'event',  display_order: 2, parent: news})
+Category.create({name:'行业动态', ename: 'trend', display_order: 3, parent: news})
 
-about = Category.create({name: '关于', ename: 'about', display_order: 3})
+about = Category.create({name: '关于', ename: 'about', display_order: 2})
 Category.create({name:'简介', ename: 'intro', display_order: 1, parent: about})
 Category.create({name:'章程', ename: 'charter', display_order: 2, parent: about})
 Category.create({name:'组织结构', ename: 'org', display_order: 3, parent: about})

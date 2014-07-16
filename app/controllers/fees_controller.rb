@@ -26,7 +26,7 @@ class FeesController < ApplicationController
 
     respond_to do |format|
       if @fee.save
-        format.html { redirect_to fees_member_url(@member), notice: '缴费生成' }
+        format.html { redirect_to member_fees_url(@member), notice: '缴费生成' }
         format.json { render :show, status: :created, location: @fee }
       else
         format.html { render :new }
@@ -40,7 +40,7 @@ class FeesController < ApplicationController
   def update
     respond_to do |format|
       if @fee.update(fee_params)
-        format.html { redirect_to @fee, notice: 'Fee was successfully updated.' }
+        format.html { redirect_to member_fees_url(@member), notice: '缴费更新.' }
         format.json { render :show, status: :ok, location: @fee }
       else
         format.html { render :edit }
@@ -54,7 +54,7 @@ class FeesController < ApplicationController
   def destroy
     @fee.destroy
     respond_to do |format|
-      format.html { redirect_to fees_url, notice: 'Fee was successfully destroyed.' }
+      format.html { redirect_to member_fees_url(@member), notice: '缴费删除成功.' }
       format.json { head :no_content }
     end
   end

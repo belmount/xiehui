@@ -1,4 +1,7 @@
-%h2 用户管理
+%ol.breadcrumb
+  %li= link_to '控制面板', control_path
+  %li.active 用户管理
+
 %table.table.table-stripped
   %tr
     %th email
@@ -17,7 +20,7 @@
           会员用户
           = link_to glyphicon('link'), admin_user_path(admin_user)
       %td= link_to glyphicon('edit'), edit_admin_user_path(admin_user)
-      %td= link_to glyphicon('remove'), [:admin, admin_user], :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to glyphicon('remove'), [:admin, admin_user], :method => :delete, :data => { :confirm => '确认删除?' }
 
 %br
 

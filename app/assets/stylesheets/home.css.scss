@@ -18,13 +18,7 @@ $title-color: $gray-light;
     border-left: 10px solid $brand-primary;
     padding-left: -10px;
   }
-  .alert{
-    padding: 5px;
-  }
-  .alert-title {
-    background-color: $title-color;
-    border-color:  $title-color;
-  }
+
   .border-top {
     margin-top: 10px;
     padding-bottom: 10px;
@@ -37,13 +31,6 @@ $title-color: $gray-light;
 
   a:hover{ color: $brand-primary; background-color:transparent;text-decoration: none;}
 
-  .label-default {
-    background-color: lighten($footer-bg-color, 30%);
-  }
-
-  .sticky-block {
-    padding: 20px;
-  }
 
   .widget {
     position: relative;
@@ -51,12 +38,10 @@ $title-color: $gray-light;
     color: $brand-danger;
     padding: 20px;
     margin-bottom: 30px;
-    //background-color: #42586a;
     background-color: #fff;
     .ct_sticky_widget {
       padding: 0;
     }
-    //border:2px solid $brand-danger;
   }
 
   .btn-more-circle {
@@ -81,8 +66,6 @@ $title-color: $gray-light;
     background-color: $brand_primary;
     color: #fff;
   }
-
-
 
   .widget > i, .popular-block > i, .recent-block > i, .custom-cat-block > i {
     display: block;

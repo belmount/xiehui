@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709092328) do
+ActiveRecord::Schema.define(version: 20140715062020) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -22,9 +25,10 @@ ActiveRecord::Schema.define(version: 20140709092328) do
     t.integer  "display_order"
     t.integer  "position",      default: 1
     t.string   "url"
+    t.integer  "main_pos"
   end
 
-  add_index "categories", ["parent_id"], name: "index_categories_on_parent_id"
+  add_index "categories", ["parent_id"], name: "index_categories_on_parent_id", using: :btree
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -39,8 +43,8 @@ ActiveRecord::Schema.define(version: 20140709092328) do
     t.datetime "updated_at"
   end
 
-  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
-  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "courses", force: true do |t|
     t.integer  "nth"
@@ -77,21 +81,11 @@ ActiveRecord::Schema.define(version: 20140709092328) do
     t.datetime "logo_updated_at"
   end
 
-  add_index "members", ["user_id"], name: "index_members_on_user_id"
+  add_index "members", ["user_id"], name: "index_members_on_user_id", using: :btree
 
   create_table "messages", force: true do |t|
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "news", force: true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.string   "ntype"
-    t.date     "happend_at"
-    t.string   "first_img_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -106,7 +100,7 @@ ActiveRecord::Schema.define(version: 20140709092328) do
     t.string   "first_img"
   end
 
-  add_index "pages", ["category_id"], name: "index_pages_on_category_id"
+  add_index "pages", ["category_id"], name: "index_pages_on_category_id", using: :btree
 
   create_table "students", force: true do |t|
     t.string   "name",         limit: 30
@@ -125,7 +119,7 @@ ActiveRecord::Schema.define(version: 20140709092328) do
     t.decimal  "score",                    precision: 5, scale: 2
   end
 
-  add_index "students", ["course_id"], name: "index_students_on_course_id"
+  add_index "students", ["course_id"], name: "index_students_on_course_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -143,7 +137,7 @@ ActiveRecord::Schema.define(version: 20140709092328) do
     t.string   "role"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
