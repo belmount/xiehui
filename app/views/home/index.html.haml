@@ -5,6 +5,7 @@
   .col-lg-4
     = holder_tag('100%x100','ad1', 'sky')
     %br
+    =render partial: 'block', locals:{icon_name:'shopping-cart', category: Category.main_pos_at(1)}
     .widget-no-bottom
       =icon('shopping-cart') 
       %h4

@@ -1,0 +1,12 @@
+.widget-no-bottom
+  =icon(icon_name) 
+  %h4
+    =category.name
+    
+.panel.panel-body.large-link   
+  %ul.list-unstyled
+    - category.sub_categories.each do |sub|
+      -if sub.has_url? 
+        %li= link_to sub.name, sub.url
+      -else
+        %li=link_to sub.name, cat_path(first_cat:category.ename, second_cat:sub.ename)
