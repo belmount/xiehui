@@ -24,7 +24,7 @@ class HomeController < ApplicationController
     if @cat.has_url? 
       @url = @cat.url
       return redirect_to @url
-    elsif @sub.has_url?
+    elsif @sub and @sub.has_url?
       @url = @sub.url
       session[:cat]=@cat.id
       session[:sub]=@sub.id

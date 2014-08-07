@@ -6,6 +6,8 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 %body{"class"=> controller.controller_name}
+  /[if lt IE 9]
+    %h1.text-danger 您的浏览器版本过低，请使用ie9以上或者google chrome, firefox, safari的最新版本
   = render "layouts/navbar"
   .main
     .container
