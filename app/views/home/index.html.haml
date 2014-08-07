@@ -6,11 +6,11 @@
   .col-lg-4
     = holder_tag('100%x100','ad1', 'sky')
     %br
-    =render partial: 'block', locals:{icon_name:'shopping-cart', category: Category.main_pos_at(1)}
+    =render partial: 'block', locals:{icon_name:'shopping-cart', category: Category.main_pos_at(1).first}
     .widget-no-bottom
       =icon('shopping-cart') 
       %h4
-        =Category.main_pos_at(1).name
+        =Category.main_pos_at(1).first.name
         消费者
     .panel.panel-body.large-link   
       %ul.list-unstyled
