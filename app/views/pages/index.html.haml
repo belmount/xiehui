@@ -31,7 +31,7 @@
     %tr
       %td= page.title
       %td= page.edit_at
-      %td= page.category.full_name
+      %td= page.category.full_name if page.category
       %td= link_to '内容', page
       %td= link_to glyphicon('edit'), edit_page_path(page)
       %td= link_to glyphicon('remove'), page, :method => :delete, :data => { :confirm => '确认删除?' }
