@@ -5,7 +5,7 @@ class Category < ActiveRecord::Base
   has_many :pages
 
   validates :name , presence: true
-  validates :ename, presence: true
+  validates :ename, presence: true, uniqueness: true
 
   validate :parent_not_be_self
   validate :need_main_pos
