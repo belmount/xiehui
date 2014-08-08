@@ -30,7 +30,7 @@ class Category < ActiveRecord::Base
   scope :top, -> {where(position: [2, 3])}
   scope :main_page, -> {where(position: [1,3])}
   scope :name_like, -> (name) {where('name like :name or ename like :name ', {name: "%#{name}%"})}
-  scope :main_pos_at, ->(pos){first_level.main_page.where(main_pos: pos)}
+  scope :main_pos_at, ->(pos){first_level.main_page.where(main_pos: pos).first}
 
   def full_name
     if parent then
