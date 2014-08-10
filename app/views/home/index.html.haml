@@ -1,27 +1,23 @@
 =javascript_include_tag 'jquery.backstretch.min'
-=javascript_include_tag 'masonry.pkgd.min'
+-#=javascript_include_tag 'masonry.pkgd.min'
 .row
-  .col-lg-8
-    =render partial:'news', locals:{news: @news}
-  .col-lg-4
-    = holder_tag('100%x100','ad1', 'sky')
-    %br
-    =render partial: 'block', locals:{icon_name:'shopping-cart', category: Category.main_pos_at(1).first}
-    .widget-no-bottom
-      =icon('shopping-cart') 
-      %h4
-        =Category.main_pos_at(1).first.name
-        消费者
-    .panel.panel-body.large-link   
-      %ul.list-unstyled
-        %li=link_to "中介信用档案 & 服务评价", 'http://jjjg.027xf.com'
-        %li=link_to "购房交易知识", '#'
-        %li=link_to "曝光台", '#'
+  .col-lg-8.col-md-8
+    .row
+      =render partial:'news', locals:{news: @news}
+    .row
+      -Category.no_news.each do |cat|
+        .col-lg-4.col-xs-6 
+          .thumbnail=render partial: 'block', locals:{icon_name:cat.icon_name, category: cat}
+  .col-lg-4.col-md-4
+    - 3.times do
+      .row
+        .panel= holder_tag('100%x100','ad1', 'sky')
+    
 .row
-  .col-lg-8
+  .col-lg-8.col-md-8
     .row
       -3.times do 
-        .col-lg-4
+        .col-lg-4.col-md-6
           .widget-no-bottom
             %span
             =icon('group') 
@@ -35,7 +31,7 @@
               %li= link_to "同行互助", '#'
       
            
-  #right-col.col-lg-4
+  #right-col.col-lg-4.col-md-4
     .widget-no-bottom
       =icon('cubes') 
       %h4
