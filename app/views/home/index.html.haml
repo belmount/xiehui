@@ -12,39 +12,6 @@
     - 3.times do
       .row
         .panel= holder_tag('100%x100','ad1', 'sky')
-    
-.row
-  .col-lg-8.col-md-8
-    .row
-      -3.times do 
-        .col-lg-4.col-md-6
-          .widget-no-bottom
-            %span
-            =icon('group') 
-            %h4
-              会员
-          .panel.panel-body.large-link
-            %ul.list-unstyled
-              %li= link_to "会员权益", '#'
-              %li= link_to "法律咨询", '#'
-              %li= link_to "市场研究", '#'
-              %li= link_to "同行互助", '#'
-      
-           
-  #right-col.col-lg-4.col-md-4
-    .widget-no-bottom
-      =icon('cubes') 
-      %h4
-        经纪机构
-      .line
-    .panel.panel-body.large-link 
-      %ul.list-unstyled
-        %li= link_to '存量房网签系统', '#'
-        %li= link_to '房屋租赁备案系统', '#'
-        %li= link_to '中介服务预受理系统', '#'
-        %li= link_to '资格证培训', '#'
-        %li= link_to '继续教育培训', '#' 
-      .triangle
 
 .row
   .col-lg-12
@@ -55,22 +22,3 @@
         .col-xs-6.col-sm-3
           %a(href='#')
             =holder_tag '180x100', i, 'sky', class:'img-rounded'
--#$.backstretch("#{image_path('skyline.svg')}");
-
-:javascript
-
-  $(document).ready(function(){
-    $('#banners').backstretch("#{image_path('skyline.svg')}");
-    var height= $('#banners').prop('scrollHeight')/2 -100;
-    console.log(height);
-    //setInterval(function(){
-      / var currentPos = $('#banners').scrollTop();
-      / if(currentPos> height) {
-      /   currentPos = 0;
-      /   $('#banners').scrollTop(currentPos);
-      / } else {
-      /   $('#banners').scrollTop(130+ currentPos);
-      / }
-      
-      / }, 2000);
-  });
