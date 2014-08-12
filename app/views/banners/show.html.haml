@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Link:
+  = @banner.link
+%p
+  %b Img:
+  = @banner.img
+%p
+  %b Start at:
+  = @banner.start_at
+%p
+  %b Expire at:
+  = @banner.expire_at
+%p
+  %b Desc:
+  = @banner.desc
+%p
+  %b Category:
+  = @banner.category
+
+= link_to 'Edit', edit_banner_path(@banner)
+\|
+= link_to 'Back', banners_path

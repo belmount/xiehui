@@ -14,11 +14,7 @@ $title-color: $gray-light;
     padding-bottom: 10px;
     border-bottom: 1px solid #d8d2c8;
   }
-  .border-left{
-    border-left: 10px solid $brand-primary;
-    padding-left: -10px;
-  }
-
+  
   .border-top {
     margin-top: 10px;
     padding-bottom: 10px;
@@ -31,74 +27,24 @@ $title-color: $gray-light;
 
   a:hover{ color: $brand-primary; background-color:transparent;text-decoration: none;}
 
-
-  .widget {
-    position: relative;
-    overflow: hidden;
-    color: $brand-danger;
-    padding: 20px;
-    margin-bottom: 30px;
-    background-color: #fff;
-    .ct_sticky_widget {
-      padding: 0;
+  .panel-heading{
+    border-left: 10px solid $brand-primary;
+    i{
+      display: block;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      line-height: 26px;
+      border: 2px solid $brand-danger;
+      border-radius: 30px;
+      -moz-border-radius: 30px;
+      -webkit-border-radius: 30px;
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      font-size: 14px;
+      color: $brand-danger;
     }
   }
 
-  .btn-more-circle {
-    color: $brand-danger !important;
-    border: 2px solid $brand-danger;
-    line-height: 26px;
-    border-radius: 30px;
-    -moz-border-radius: 30px;
-    -webkit-border-radius: 30px;
-    text-align: center;
-    display: block;
-    float: right;
-    width: 30px;
-    height: 30px;
-  }
-
-  .bg-primary{
-    @extend .widget;
-    background: url('content-top-bg.png') no-repeat 15px bottom;
-    padding: 10px 0;
-    margin-bottom: -1px;
-    background-color: $brand_primary;
-    color: #fff;
-  }
-
-  .widget > i, .popular-block > i, .recent-block > i, .custom-cat-block > i {
-    display: block;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    line-height: 26px;
-    border: 2px solid $brand-danger;
-    border-radius: 30px;
-    -moz-border-radius: 30px;
-    -webkit-border-radius: 30px;
-    position: absolute;
-    right: 20px;
-    top: 15px;
-    font-size: 14px;
-    color: $brand-danger;
-  }
-
-  .widget-no-bottom {
-    @extend .widget;
-    border-left: 10px solid $brand-primary;
-    padding: 5px 20px;
-    margin-bottom: 0;
-    h4{color: $text-color;}
-    .line{width:60px; left:10px; border-bottom: 1px dashed $brand-primary;}
-  }
-  
-  .triangle{
-    left: 15px;
-    display: block;
-    border-top: 16px solid transparent;
-    border-left: 16px solid $brand-primary;
-    overflow: hidden;
-    position: absolute;
-  }
 }

@@ -1,19 +1,24 @@
-.bg-primary
-  =icon('share') 
-  %h4.text-center(style='color:#fff')
-    新闻 & 通告
-.row#cascad
-  -news.each do |n|
-    .col-xs-6.col-md-4.item
-      .thumbnail
-        %a{href: cat_page_path(n)}
-          -unless n.first_img.nil? 
-            =image_tag n.first_img
-          .caption
-            %h4=n.title
-            %p= content_preview n.content, 100
+.panel.panel-news
+  .panel-heading
+    %h4
+      新闻 & 通告 
+      =link_to icon('eye'), cat_path(@news_cat.ename)
+  .panel-body
+    .row#cascad
+      -news.each do |n|
+        .col-xs-12.col-sm-6.col-md-4.item
+          .thumbnail
+            %a{href: cat_page_path(n)}
+              -unless n.first_img.nil? 
+                =image_tag n.first_img
+              .caption
+                %h4=n.title
+                %p
+                  = content_preview n.content, 100
+                  = '...'
+                %p
+                  %small="#{time_ago_in_words(n.edit_at)}前"
 :javascript
   $(document).ready(function(){
     var msnr= new Masonry ('#cascad', {itemSelector:'.item'});
   });
-  

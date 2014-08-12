@@ -1,24 +1,26 @@
 =javascript_include_tag 'jquery.backstretch.min'
--#=javascript_include_tag 'masonry.pkgd.min'
+=javascript_include_tag 'masonry.pkgd.min'
 .row
-  .col-lg-8.col-md-8
+  .col-md-10
     .row
-      =render partial:'news', locals:{news: @news}
+      .col-md-12
+        =render partial:'news2', locals:{news: @news}
     .row
       -Category.no_news.each do |cat|
-        .col-lg-4.col-xs-6 
-          .thumbnail=render partial: 'block', locals:{icon_name:cat.icon_name, category: cat}
-  .col-lg-4.col-md-4
-    - 3.times do
-      .row
-        .panel= holder_tag('100%x100','ad1', 'sky')
+        .col-md-4.col-xs-12.col-sm-6
+          =render partial: 'block', locals:{icon_name:cat.icon_name, category: cat}
+  .col-md-2
+    .row
+      -@ads.each do |ad|
+        .col-mx-12
+          %a.thumbnail{href: ad.link}
+            =image_tag ad.img.url(:medium), alt: ad.desc
 
-.row
-  .col-lg-12
-    .widget-no-bottom
-      %h4 合作伙伴
-    .panel.panel-body
-      -(1..4).each do |i|
-        .col-xs-6.col-sm-3
-          %a(href='#')
-            =holder_tag '180x100', i, 'sky', class:'img-rounded'
+-if @partners.count > 0 
+  %hr
+  %h3 合作伙伴
+  .row
+    -@partners.each do |partner|
+      .col-xs-6.col-sm-3
+        %a.thumbnail{href: partner.link}
+          =image_tag partner.img.url(:medium), alt: partner.desc, class:'img-rounded'

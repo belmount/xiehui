@@ -34,7 +34,6 @@ body {background: asset_url('texture_bg.png') repeat scroll 0 0 #444444;
   }
 .navbar-static-top {
   border-top: 2px solid #ef4929;
-  font-size: $font-size-large;
   color: black;
   //font-weight: bold;
 }
@@ -54,11 +53,14 @@ body {background: asset_url('texture_bg.png') repeat scroll 0 0 #444444;
 .footer {
   background: asset_url('content-bottom-bg.png') no-repeat center bottom;
   color: #FFF;
-  background-color: $brand-primary;
+  background-color: #ffba31;
 }
 footer {
   h4,h5 { border-left:1px dotted $brand-primary; padding-left:5px; color: #f2f2f2;}
   a{color:#ccc;}
+  .table {
+    background-color: transparent;
+  }
 }
 
 
@@ -76,16 +78,20 @@ footer {
   //ul { font-size:16px;}
   // li {margin-bottom: 10px;}
 }
-
-.widget-no-bottom + .large-link {
-  border-bottom: 2px solid $brand-primary;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-}
-
 .date-sel{
     display: inline;
     width: 130px;
 } 
+
+.panel-news {
+  a , a:hover{color: white;}
+  .panel-body {
+    background-color: #ffba31;
+  }
+}
+
+.panel-body{
+  a {color: #909090;}
+}
 
 

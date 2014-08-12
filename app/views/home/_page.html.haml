@@ -5,12 +5,10 @@
     %li= page.title
   - else
     %li.active=page.category.name
-
-%h3= page.title
-%hr
-  = page.content.html_safe
-%hr
-%p.pull-right
-  %strong= "--#{page.edit_at}"
+.panel.panel-body
+  %h3.border-default= page.title
+  .border-default= page.content.html_safe
+  %p.pull-right
+    %strong= "--#{page.edit_at}"
 
 

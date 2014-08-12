@@ -1,0 +1,28 @@
+%ol.breadcrumb
+  %li= link_to '控制面板', control_path
+  %li.active Banner管理
+
+- @banners.each do |banner|
+  .panel.panel-body
+    .row
+      .col-sm-8
+        %h5=banner.desc
+
+        %a{href: banner.link}
+          =image_tag banner.img.url(:thumb), class:'img-rounded'
+        %p
+          %span.label.label-info= banner.type_name
+          ="有效期从#{banner.start_at}至#{banner.expire_at}"
+
+
+      .col-sm-4
+        .btn-group
+          = link_to icon('edit'), edit_banner_path(banner), class: 'btn btn-default'
+          = link_to icon('trash-o'), banner, :method => :delete, :data => { :confirm => '确认删除?' }, class: 'btn btn-danger'
+
+%br
+=paginate @banners
+
+%br
+
+= link_to '+ Banner', new_banner_path, class: 'btn btn-success'

@@ -9,6 +9,7 @@ class Ability
         can :manage, Category
         can :manage, Page
         can :manage, Message
+        can :manage, Banner
     elsif user.role == 'member_man'
         can :manage, Member
         can :manage, Student

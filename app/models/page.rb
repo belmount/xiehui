@@ -11,6 +11,8 @@ class Page < ActiveRecord::Base
     match_part = /<img.*src="(?<url>\S*)?"/.match(self.content)
     if match_part then  
       self.first_img = match_part[:url]
+    else
+      self.first_img = nil
     end
   end
 

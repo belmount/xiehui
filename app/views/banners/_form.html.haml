@@ -1,0 +1,34 @@
+.panel.panel-body
+  = form_for @banner do |f|
+    .form-group
+      = f.label :link, '*链接地址'
+      = f.text_field :link, { class:'form-control'}
+      %p=error_text @banner.errors, :link
+    .form-group
+      .row
+        .col-sm-6
+          - unless @banner.img.url =~ /missing.png/ 
+            = image_tag @banner.img.url(:medium)
+          - else
+            = holder_tag '180x100', '暂无图像', 'sky'
+          = f.label :img, '上传图片', class: 'btn btn-info'
+          = f.file_field :img, style:"opacity:0"
+          %p=error_text @banner.errors, :img
+        .col-sm-3
+          = f.label :category, '*类型'
+          = f.select :category, options_from_collection_for_select(Banner::TYPES, :first, :last, @banner.category),class: 'form-control'
+
+          %p=error_text @banner.errors, :category
+    .form-group
+      = f.label :start_at, '*开始时间'
+      = f.date_select :start_at,  {},{ class:'form-control date-sel'}
+    .form-group
+      = f.label :expire_at,'*终止时间'
+      = f.date_select :expire_at, {},{ class:'form-control date-sel'}
+      %p=error_text @banner.errors, :expire_at
+    .form-group
+      = f.label :desc, '*描述信息'
+      = f.text_field :desc,{ class:'form-control'}
+      %p=error_text @banner.errors, :desc
+    .actions
+      = f.submit '保存', { class:'btn btn-success'}
