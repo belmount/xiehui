@@ -4,4 +4,4 @@
   .panel-body
     = render 'form'
 
-=link_to icon('chevron-left'), :back
+=render partial:'home/page_left', locals: {cat: @cat}

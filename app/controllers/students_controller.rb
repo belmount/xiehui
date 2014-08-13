@@ -2,7 +2,7 @@ class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy,:register_finished]
   before_action :authenticate_user!, except:[:new, :create]
   authorize_resource
-  layout "categories", except: [:new, :register_finished]
+  layout "categories", except: [ :new, :register_finished]
   # GET /students
   # GET /students.json
   def index
@@ -34,6 +34,8 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
+    @cat = Category.find_by(url: '/register')
+    @cat = @cat.parent if @cat.parent 
   end
 
   # GET /students/1/edit
