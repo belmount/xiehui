@@ -2,12 +2,11 @@ class HomeController < ApplicationController
   def index
     @news_cat = Category.first_level.main_page.where(main_pos: 0).first
     if @news_cat 
-      @news = Page.where(category: @news_cat.sub_categories).limit(5)
+      @news = Page.where(category: @news_cat.sub_categories).limit(3)
     else
       @news = Page.where('1=2')
     end
-
-    @ads = Banner.ads.in_valid
+    
     @partners = Banner.partners.in_valid
   end
 

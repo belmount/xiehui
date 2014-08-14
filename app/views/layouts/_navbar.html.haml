@@ -1,17 +1,17 @@
 %header
   .navbar-static-top.navbar-default
-    .container
-      .navbar-header
-        %a.navbar-brand{href: root_path}
-          =image_tag 'logo.svg'
-          %strong 武汉市房地产中介协会 
 
-        %button.navbar-toggle{type:"button", "data-toggle"=> "collapse","data-target"=>"#nb"}
-          %span.sr-only Toggle navigation
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
-        %a.navbar-brand{href: root_path}
+    .navbar-header
+      %a.navbar-brand{href: root_path}
+        =image_tag 'logo.svg', height: 80
+        %strong 武汉市房地产中介协会
+
+      %button.navbar-toggle{type:"button", "data-toggle"=> "collapse","data-target"=>"#nb"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    .container.nav-primary
       #nb.navbar-collapse.collapse
 
         %ul.nav.navbar-nav

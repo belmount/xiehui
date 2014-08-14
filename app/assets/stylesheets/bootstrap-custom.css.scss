@@ -14,9 +14,19 @@ $navbar-default-bg:  #fff;
 
 body {background: asset_url('texture_bg.png') repeat scroll 0 0 #444444;
 }
+.nav-primary {
+  background-color: #ffba31;
+  .navbar-nav > li {
+    a{ font-size: $font-size-large; color: white;}
+    a:hover {background-color: $brand-primary;}
+  }
+}
 
-.nav {
-  background-color: white;
+.navbar-brand {
+  max-height: 40px;
+  overflow: visible;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .field_with_errors {
@@ -34,7 +44,7 @@ body {background: asset_url('texture_bg.png') repeat scroll 0 0 #444444;
   }
 .navbar-static-top {
   border-top: 2px solid #ef4929;
-  color: black;
+  color: $brand-primary;
   //font-weight: bold;
 }
 
