@@ -33,6 +33,7 @@ class PagesController < ApplicationController
 
   # GET /pages/1/edit
   def edit
+    flash[:p] = params[:p]
   end
 
   # POST /pages
@@ -56,7 +57,7 @@ class PagesController < ApplicationController
   def update
     respond_to do |format|
       if @page.update(page_params)
-        format.html { redirect_to @page, notice: 'Page was successfully updated.' }
+        format.html { redirect_to pages_url(page: flash[:p]), notice: '页面已经更新成功' }
         format.json { render :show, status: :ok, location: @page }
       else
         format.html { render :edit }
@@ -70,7 +71,7 @@ class PagesController < ApplicationController
   def destroy
     @page.destroy
     respond_to do |format|
-      format.html { redirect_to pages_url, notice: 'Page was successfully destroyed.' }
+      format.html { redirect_to pages_url(page: params[:page]), notice: '页面已成功删除.' }
       format.json { head :no_content }
     end
   end
