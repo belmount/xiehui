@@ -25,6 +25,10 @@ class Page < ActiveRecord::Base
     end 
   end
 
+  def edit_at
+    self[:edit_at] || self[:created_at]
+  end
+
   default_scope {order(edit_at: :desc)}
   scope :with_imgs, ->{where.not(first_img: nil)} 
 
