@@ -1,0 +1,23 @@
+.panel
+  .panel-heading
+    %h4
+      诚信曝光 
+      =link_to icon('bell'), cat_path(@news_cat.ename)
+  .panel-body
+    %ul.list-unstyled
+      -infos.each do |n|
+        %li(style='border-bottom: 1px dashed; margin-bottom:3px;')
+          %p
+            %strong{style:'font-size: 1.2em;'}=link_to n.title, cat_page_path(n)
+            %small="#{time_ago_in_words(n.edit_at)}前"
+
+      %li
+        %a.btn-more-circle.pull-left{href: cat_path(first_cat: :creditfile, second_cat: :consumers)}
+          =icon('chevron-right')
+      -3.times do
+        %li
+          &nbsp;
+    .row
+      .col-sm-12
+        %a.btn.btn-primary(href="")
+          %strong 中介黑名单查询

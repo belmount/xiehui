@@ -2,12 +2,16 @@ class HomeController < ApplicationController
   def index
     @news_cat = Category.first_level.main_page.where(main_pos: 0).first
     if @news_cat 
-      @news = Page.where(category: @news_cat.sub_categories).limit(3)
+      @news = Page.where(category: @news_cat.sub_categories).limit(5)
     else
       @news = Page.where('1=2')
     end
+
+    @credit_infos = Category.find_by(ename: 'consumers').pages
     
     @partners = Banner.partners.in_valid
+
+    @counsils = Member.where(mtype: 'council')
   end
 
   def control

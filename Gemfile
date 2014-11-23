@@ -58,7 +58,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'therubyracer', platform: :ruby
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'bootstrap-datepicker-rails'
 gem 'kaminari'
 gem 'haml-rails'

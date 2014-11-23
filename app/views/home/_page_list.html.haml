@@ -10,7 +10,7 @@
         -unless p.thumb_img_url.nil?
           =image_tag p.thumb_img_url, class: 'media-object pull-left', style: 'width: 120px;'
         .media-body
-          %h4=link_to p.title, cat_path(first_cat: p.category.parent.ename, second_cat: p.category.ename, pid: p.id)
+          %h3=link_to p.title, cat_path(first_cat: p.category.parent.ename, second_cat: p.category.ename, pid: p.id)
           %p
             = content_preview p.content, 100
             ='...'

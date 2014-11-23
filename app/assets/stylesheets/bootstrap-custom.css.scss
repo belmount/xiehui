@@ -15,9 +15,9 @@ $navbar-default-bg:  #fff;
 body {background: asset_url('texture_bg.png') repeat scroll 0 0 #444444;
 }
 .nav-primary {
-  background-color: #ffba31;
+  background-color: lighten($brand-primary, 0.1);
   .navbar-nav > li {
-    a{ font-size: $font-size-large; color: white;}
+    a{ font-size: $font-size-large; color: white; font-weight:bold;}
     a:hover {background-color: $brand-primary;}
   }
 }
@@ -63,7 +63,8 @@ body {background: asset_url('texture_bg.png') repeat scroll 0 0 #444444;
 .footer {
   background: asset_url('content-bottom-bg.png') no-repeat center bottom;
   color: #FFF;
-  background-color: #ffba31;
+  background-color: $brand-primary;
+  //#ffba31;
 }
 footer {
   h4,h5 { border-left:1px dotted $brand-primary; padding-left:5px; color: #f2f2f2;}
@@ -103,6 +104,8 @@ footer {
 
 .panel-body{
   a {color: #909090;}
+  a.btn{color:white;}
+  a.btn:hover {color:$brand-primary;}
 }
 
 

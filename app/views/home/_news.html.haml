@@ -1,36 +1,27 @@
 .panel
-  .col-lg-12.col-md-12
-    .bg-primary
-      =icon('share') 
-      %h4.text-center(style='color:#fff')
-        新闻 & 通告
-    .panel.panel-body
-      .row
-        .col-sm-6
-          -if news.with_imgs.length > 0
-            #slide.carousel.slide{'data-ride'=> 'carousel'}
-              %ol.carousel-indicators
-                -for i in 0..(news.with_imgs.length) do 
-                  %li{'data-target'=>'#slide', 'data-slide-to'=> i, :class => "#{'active' if i==0}"}
-              .carousel-inner
-                -news.with_imgs.each_with_index do |n, i|
-                  .item{:class=>"#{'active' if i==0}"}
-                    =image_tag n.thumb_img_url, {height: 200, width: 400 }
-                    .carousel-caption
-                      %h5=link_to n.title, cat_page_path(n)
-              %a.left.carousel-control{href: '#slide', 'data-slide'=>'prev'}
-                =glyphicon('chevron-left')
-              %a.right.carousel-control{href: '#slide', 'data-slide'=>'next'}
-                =glyphicon('chevron-right')
-        .col-sm-6.large-link
-          
-          %ul.list-unstyled
-            -news.each do |n|
-              %li(style='border-bottom: 1px dashed;')
-                %p
-                  =link_to n.title, cat_page_path(n)
-                  %small="#{time_ago_in_words(n.edit_at)}前"
-                  
-          %p
-            %a.btn-more-circle.pull-left{href: cat_path(:news)}
-              =icon('chevron-right')
+  .panel-heading
+    %h4
+      新闻 & 通告 
+      =link_to icon('eye'), cat_path(@news_cat.ename)
+  .panel-body
+    .row
+      .col-sm-6
+        -if news.with_imgs.length > 0
+          - n=news.with_imgs[0]
+          .thumbnail
+            %a{href: cat_page_path(n)}
+              -unless n.first_img.nil? 
+                =image_tag n.first_img
+              .caption
+                %h4=n.title
+      .col-sm-6
+        %ul.list-unstyled
+          -news.each do |n|
+            %li(style='border-bottom: 1px dashed; margin-bottom:3px;')
+              %p
+                %strong{style:'font-size: 1.2em;'}=link_to n.title, cat_page_path(n)
+                %small="#{time_ago_in_words(n.edit_at)}前"
+                
+        %p
+          %a.btn-more-circle.pull-left{href: cat_path(:news)}
+            =icon('chevron-right')
