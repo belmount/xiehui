@@ -7,7 +7,7 @@ class HomeController < ApplicationController
       @news = Page.where('1=2')
     end
 
-    @credit_infos = Category.find_by(ename: 'consumers').pages
+    @credit_infos = Category.find_by(ename: 'consumers').pages.limit(3)
     
     @partners = Banner.partners.in_valid
 
