@@ -1,5 +1,4 @@
 .panel-body
-  = @member.errors.inspect
   = form_for @member,:html => { :multipart => true } do |f|
     - if @member.errors.any?
       .alert.alert-danger 请修正后重新提交

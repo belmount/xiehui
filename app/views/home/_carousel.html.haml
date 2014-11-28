@@ -1,17 +1,20 @@
 .panel
   .panel-heading
     %h4
-      理事单位 
+      理事会成员
       =link_to icon('tree'), cat_path(@news_cat.ename)
   .panel-body
-    .carousel.slide{'data-ride'=> 'carousel', id: div}
+    .carousel.slide{'data-ride'=> 'carousel', id: div, style: "height: 50px; margin: 0 auto"}
       .carousel-inner
         .item.active
           .row
             -imgs[0..5].each_with_index do |img, i|
               .col-xs-4.col-md-2
                 %a.thumbnail{href: img.url}
-                  =image_tag img.logo.url(:thumb)
+                  -if img.logo.url =~ /missing.png/ 
+                    =holder_tag '200x50', img.name, 'sky'
+                  -else
+                    =image_tag img.logo.url(:thumb), style: "height: 50px; width:100%;"
         -for i in 1..(imgs.length/6) do 
           .item
             .row
@@ -20,7 +23,10 @@
                 -img =imgs[i*6 +j]
                 .col-xs-4.col-md-2
                   %a.thumbnail{href: img.url}
-                    =image_tag img.logo.url(:thumb)
+                    -if img.logo.url =~ /missing.png/ 
+                      =holder_tag '200x50', img.name, 'sky'
+                    -else
+                      =image_tag img.logo.url(:thumb), style: "height: 50px; width:100%;"
       %a.left.carousel-control{href:"##{div}",role:"button", 'data-slide'=>"prev"}
         %span.glyphicon.glyphicon-chevron-left{'aria-hidden'=> "true"}
         %span.sr-only

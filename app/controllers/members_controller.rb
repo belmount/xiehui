@@ -7,6 +7,20 @@ class MembersController < ApplicationController
   # GET /members.json
   def index
     @members = Member.name_with(params[:name]).page params[:page]
+
+    respond_to do |format|
+      format.html { render :index}
+      format.xls {@members = Member.all}
+      format.csv {send_data  Member.all.to_csv, filename: "会员-#{Time.now.strftime('%y%m%d%H%M%S')}.csv", type: "text/csv" }
+    end
+  end
+
+  def feesum
+    @fees= Fee.all
+    respond_to do |format|
+      format.xls {}
+      format.csv {send_data  @fees.to_csv, filename: "缴费情况-#{Time.now.strftime('%y%m%d%H%M%S')}.csv", type: "text/csv" }
+    end
   end
 
   # GET /members/1

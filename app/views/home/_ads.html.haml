@@ -2,4 +2,4 @@
   - Banner.ads.in_valid.each do |ad|
     .col-mx-12
       %a.thumbnail{href: ad.link, target: '_blank'}
-        =image_tag ad.img.url(:medium), alt: ad.desc
+        =image_tag ad.img.url(:medium), alt: ad.desc, class: 'ad-img'

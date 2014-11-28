@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">单位名称</Data></Cell>
+        <Cell><Data ss:Type="String">法人姓名</Data></Cell>
+        <Cell><Data ss:Type="String">法人电话</Data></Cell>
+        <Cell><Data ss:Type="String">联系人</Data></Cell>
+        <Cell><Data ss:Type="String">联系人电话</Data></Cell>
+      </Row>
+    <% @members.each do |member| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= member.name%></Data></Cell>
+        <Cell><Data ss:Type="String"><%= member.legal_person %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= member.legal_tel %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= member.contract %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= member.contract_tel %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

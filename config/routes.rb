@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :members do 
     collection do 
       get 'sel'
+      get 'feesum'
     end
     member do 
       post 'assoc_user'
