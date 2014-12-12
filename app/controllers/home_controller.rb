@@ -40,7 +40,7 @@ class HomeController < ApplicationController
       @pid = params[:pid]
       @pages = Page.where(id: @pid)
     elsif  @sub then
-      @pages= @sub.pages
+      @pages= @sub.pages.page params[:page]
     else
       @pages=[]
     end
