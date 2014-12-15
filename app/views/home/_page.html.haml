@@ -2,13 +2,17 @@
   %li= link_to page.category.parent.name, cat_path(page.category.parent.ename)
   - if @pid.present? 
     %li= link_to page.category.name, cat_path(first_cat:page.category.parent.ename, second_path: page.category.ename)
-    %li= page.title
+    %li=page.title
   - else
     %li.active=page.category.name
+  
 .panel.panel-body
-  %h3.border-default= page.title
+  %h3.border-default
+    = page.title
+    %small="#{page.pv}次浏览"
   .border-default= page.content.html_safe
   %p.pull-right
     %strong= "--#{page.edit_at}"
+
 
 

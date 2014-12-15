@@ -44,6 +44,12 @@ class HomeController < ApplicationController
     else
       @pages=[]
     end
+
+    if @pages.size == 1 
+      p = @pages.first
+      p.inc_pv
+      p.save
+    end
     render layout: 'application'
   end
 

@@ -6,6 +6,11 @@ class Page < ActiveRecord::Base
 
 
   before_save :get_first_image
+  after_initialize :init
+
+  def init
+    self.pv  ||= 0
+  end
 
   def get_first_image
     match_part = /<img.*src="(?<url>\S*)?"/.match(self.content)
@@ -14,6 +19,10 @@ class Page < ActiveRecord::Base
     else
       self.first_img = nil
     end
+  end
+
+  def inc_pv
+    self[:pv] += 1
   end
 
 
