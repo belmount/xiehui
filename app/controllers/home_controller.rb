@@ -11,7 +11,7 @@ class HomeController < ApplicationController
     
     @partners = Banner.partners.in_valid
 
-    @counsils = Member.where(mtype: ['council', 'vp'])
+    @counsils = Member.where(mtype: ['council', 'vp']).order('disp_order')
   end
 
   def control

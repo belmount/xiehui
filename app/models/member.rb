@@ -13,6 +13,7 @@ class Member < ActiveRecord::Base
   validates :contract, {presence:true, length: {in: 2.. 4}}
   validates :contract_tel, { presence: true, format: {with: /[0-9]{8,13}/}}
   validates :url, {format: {with: URI::regexp(%w(http https))}, allow_blank: true}
+  validates :disp_order, numericality: { only_integer: true }
 
   belongs_to :user
   has_many :fees
