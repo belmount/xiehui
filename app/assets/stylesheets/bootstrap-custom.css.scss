@@ -103,6 +103,7 @@ footer {
 }
 
 .panel-body{
+  li:nth-child(-n+2) a {color:$brand-primary;}
   a {color: #909090;}
   a.btn{color:white;}
   a.btn:hover {color:$brand-primary;}
